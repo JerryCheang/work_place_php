@@ -1,0 +1,205 @@
+/* Compliments Tabstyles1.css */
+
+@import url(http://fonts.googleapis.com/css?family=Kaushan+Script);
+
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700|PT+Serif:400,400italic,700,700italic&subset=latin,cyrillic-ext,latin-ext,cyrillic);
+.Chart {
+  width: 100%;
+  height: 50%;
+}
+
+
+
+    /* Basic Grey */
+    .basic-grey {
+    margin-left:auto;
+    margin-right:auto;
+    max-width: 920px;
+    background: #F7F7F7;
+    padding: 25px 15px 25px 10px;
+    font: 18px Georgia, "Times New Roman", Times, serif;
+    color: #888;
+    text-shadow: 1px 1px 1px #FFF;
+    border:1px solid #E4E4E4;
+    }
+    .basic-grey h1 {
+    font-size: 25px;
+    padding: 0px 0px 10px 40px;
+    display: block;
+    border-bottom:1px solid #E4E4E4;
+    margin: -10px -15px 30px -10px;;
+    color: #888;
+    }
+    .basic-grey h1>span {
+    display: block;
+    font-size: 11px;
+    }
+    .basic-grey label {
+    display: block;
+    margin: 0px;
+    }
+    .basic-grey label>span {
+    float: left;
+    width: 20%;
+    text-align: right;
+    padding-right: 10px;
+    margin-top: 10px;
+    color: #888;
+    }
+    .basic-grey input[type="text"], .basic-grey input[type="email"], .basic-grey textarea, .basic-grey select {
+    border: 1px solid #DADADA;
+    color: #888;
+    height: 30px;
+    margin-bottom: 16px;
+    margin-right: 6px;
+    margin-top: 2px;
+    outline: 0 none;
+    padding: 3px 3px 3px 5px;
+    width: 300%;
+    font-size: 12px;
+    line-height:15px;
+    box-shadow: inset 0px 1px 4px #ECECEC;
+    -moz-box-shadow: inset 0px 1px 4px #ECECEC;
+    -webkit-box-shadow: inset 0px 1px 4px #ECECEC;
+    }
+    .basic-grey textarea{
+    padding: 5px 3px 3px 5px;
+    }
+    .basic-grey select {
+    background: #FFF url('down-arrow.png') no-repeat right;
+    background: #FFF url('down-arrow.png') no-repeat right);
+    appearance:none;
+    -webkit-appearance:none;
+    -moz-appearance: none;
+    text-indent: 0.01px;
+    text-overflow: '';
+    width: 300%;
+    height: 35px;
+    line-height: 25px;
+    }
+    .basic-grey textarea{
+    height:100px;
+    }
+    .basic-grey .button {
+    background: #E27575;
+    border: none;
+    padding: 10px 25px 10px 25px;
+    color: #FFF;
+    box-shadow: 1px 1px 5px #B6B6B6;
+    border-radius: 3px;
+    text-shadow: 1px 1px 1px #9E3F3F;
+    cursor: pointer;
+    }
+    .basic-grey .button:hover {
+    background: #CF7A7A
+    }
+
+
+
+.tabs-wrapper label.tabLabel {
+  color: #DBDBD3;
+  background:  #C3C3C3;
+}
+
+.tabs-wrapper label.tabLabel:hover {
+  background: #667876;
+  /*@include transform (translate(0,-0.2em));*/
+}
+
+.mainImage img{
+  border:solid 2px #777777;
+}
+
+h1 {
+    color: #ee1f7a;
+    font-family: 'Kaushan Script', cursive;
+    border-bottom: 2px dotted;
+    padding-bottom: 6px;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.1);
+    border-color:#000;
+}
+
+.desc{
+  padding:20px;
+  border:solid 1px #ddd;
+  background:#fff;
+  }
+
+.images img{
+  border-color:#ddd !important;
+}
+
+#tab1:checked + label.tabLabel, #tab2:checked + label, #tab3:checked + label, #tab4:checked + label, #tab5:checked + label {
+  background: #F6B0C5;
+  color: #fff;
+}
+
+.tab-body {
+  background-color: #fff;
+  background-repeat: repeat !important;
+  background-size:cover;
+}
+
+
+.tab-body p{
+  font-weight:600;
+}
+
+.tab-body-wrapper {
+  border:solid 2px #F6B0C5;
+  background: #f2f2f2;
+  border-top: #F6B0C5 5px solid;
+
+}
+
+
+/* ++++++++++++++++++++++++
+
+Carousel
+
+++++++++++++++++++++++++++++++*/
+
+.chevron::before {
+  border-color:#F6B0C5 !important;
+}
+
+.swiper-pagination-bullet-active {
+    background: none repeat scroll 0% 0% #F6B0C5 !important;
+}
+
+  .swiper-container img{
+  border:solid 1px #777 !important;
+
+}
+
+
+/* ++++++++++++++++++++++++
+
+Image Gallery
+
+++++++++++++++++++++++++++++++*/
+
+.imagesRow{
+  background:#fff;
+}
+
+
+
+/* ++++++++++++++++++++++++
+
+Media Query
+
+++++++++++++++++++++++++++++++*/
+@media screen and (max-width: 600px) {
+  .tabs-wrapper label.tabLabel {
+    border-bottom: 2px solid #4D4C47;
+
+  }
+
+}
+
+div.tabtext{
+  background:#ffffff;
+  border:solid 1px #E6F6F8;
+}
