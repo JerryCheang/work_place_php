@@ -356,8 +356,12 @@ require_once "random_compat/lib/random.php";
   <option value="1L3R" checked>1L3R</option>
   <option value="1L2R">1L2R</option>
   <option value="1L1R">1L1R</option>
-  <optgroup label="ZD">
+  
+  <optgroup label="ZD,CZ_HC">
   <option value="1L3X4R_0">1L3X4R_0</option>
+  </optgroup>
+
+  <optgroup label="ZD">
   <option value="1L3X4R_1">1L3X4R_1</option>
   <option value="1L3X4R_2">1L3X4R_2</option>
   <option value="1L3X4R_3">1L3X4R_3</option>

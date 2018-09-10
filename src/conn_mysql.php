@@ -1,6 +1,9 @@
 <?php
-
-$sis = explode(PHP_EOL,file_get_contents($_SERVER['DOCUMENT_ROOT']."/../mysql.key"));
+if($_SERVER['DOCUMENT_ROOT']){
+  $sis = explode(PHP_EOL,file_get_contents($_SERVER['DOCUMENT_ROOT']."/../mysql.key"));
+}else{
+  $sis = explode(PHP_EOL,file_get_contents("../../mysql.key"));
+}
 $sis = str_replace(array("\r\n", "\r", "\n"), '', $sis);
 define('DBHOST', $sis[0]);
 define('DBUSER', $sis[1]);

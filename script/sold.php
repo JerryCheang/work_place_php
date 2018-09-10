@@ -15,8 +15,8 @@ if(date("H")>=20)
 	$XXA = 1;
 	$XXB = 0;
 }else{
-	$XXA = 0;
-	$XXB = -1;
+	$XXA = -2;
+	$XXB = -3;
 }
 
 function login_ibay($web_username,$web_password,$web_site){
@@ -43,8 +43,6 @@ function login_ibay($web_username,$web_password,$web_site){
 	return $cookie = $matches[1]; //获得COOKIE（SESSIONID）
   	/* 解析cookie结束 */
 }
-
-while(1){
 
 	$ch = curl_init();
 	curl_setopt($ch, CURLOPT_URL, "http://".$web_site."/index.php?controller=dingzhi&action=transactionsoldv2");
@@ -164,8 +162,5 @@ for($gh = 0 ; $gh < count($selleruserid); $gh++)
 	curl_setopt($ch, CURLOPT_COOKIE, $cookie);
 	curl_exec($ch);
 	curl_close($ch);
-}
-	//一小时一个循环
-	sleep(3600);
 }
 ?>

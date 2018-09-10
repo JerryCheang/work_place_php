@@ -29,8 +29,8 @@ echo $_POST["transactionsolddate"]."<br/>";
 $result = "SELECT * FROM "."SOLD_".date("Ymd",strtotime("0 day"));
 echo date("Ymd",strtotime("0 day"))."<br/>";
 }
-$EURUSD = 1.16272512802808;
-$GBPUSD = 1.285994123408423;
+$EURUSD = 1.158321273516643;
+$GBPUSD = 1.295132127955494;
 
 
 $rows = $db_web->query($result)->fetchAll();
