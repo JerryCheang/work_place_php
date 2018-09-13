@@ -7,9 +7,15 @@ date_default_timezone_set("Asia/Hong_Kong");
 if($_POST["submit"]=="OPEN")
 {
 //设置post的数据
-//$itts = spliti('#########',$_POST["inputtitle"]);
+
 $itts = explode(PHP_EOL, $_POST["inputtitle"]);
-//$mpts = spliti('#########',$_POST["mainphoto"]);
+$itts = str_replace(array("\r\n", "\r", "\n"), '', $itts);
+
+$itts = str_replace("Uk", "UK", $itts);
+$itts = str_replace("Us", "US", $itts);
+$itts = str_replace("Usa", "USA", $itts);
+$itts = str_replace("USa", "USA", $itts);
+
 $mpts = $_POST["imgurl"];
 if(count($mpts) != count($itts))
 {
@@ -21,16 +27,11 @@ $post = array (
 	'password' => $_COOKIE["password"],
 	'submit' => '登录'
 );
-//登录地址
-$url = "http://".$web_site."/index.php/myibay/login";
-//设置cookie保存路径
-$cookie = dirname(__FILE__) . '/cookie_ibay.txt';
-//登录后要获取信息的地址
-$url2 = "http://".$web_site."/index.php/muban/editmuban/muban_id/".$_POST['mubanid'];
+
 //模拟登录
 //login_post($url, $cookie, $post);
 $curl = curl_init();//初始化curl模块
-curl_setopt($curl, CURLOPT_URL, $url);//登录提交的地址
+curl_setopt($curl, CURLOPT_URL, "http://".$web_site."/index.php/myibay/login");//登录提交的地址
 curl_setopt($curl, CURLOPT_HEADER, 1);//是否显示头信息
 curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);//是否自动显示返回的信息
 curl_setopt($curl, CURLOPT_POST, 1);//post方式提交
@@ -43,10 +44,11 @@ preg_match("/Set\-Cookie: ([^\r\n]*)/i", $header, $matches);
 $cookie = $matches[1]; //获得COOKIE（SESSIONID）
 curl_close($curl); //关闭curl
 /* 解析cookie结束 */
+
   //获取登录页的信息
   //$content = get_content($url2, $cookie);
   $ch = curl_init();
-  curl_setopt($ch, CURLOPT_URL, $url2);
+  curl_setopt($ch, CURLOPT_URL, "http://".$web_site."/index.php/muban/editmuban/muban_id/".$_POST['mubanid']);
   curl_setopt($ch, CURLOPT_HEADER, 0);
   curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
   curl_setopt($ch, CURLOPT_COOKIE, $cookie);
@@ -148,7 +150,7 @@ curl_close($curl); //关闭curl
 				}
 				/* 随机改价格 */
 				//$itts[$ui] = str_replace("\"","&quot;", $itts[$ui]);
-
+				$itts[0] = htmlspecialchars($itts[0]);
 				$vrs = str_replace("zcyinputtitle",$itts[0], $vrs);
 				$vrs = str_replace('zcymainphoto',$mpts[0], $vrs);
 				$vrs = str_replace('zcymainphoto',$mpts[0], $vrs);
@@ -210,6 +212,7 @@ curl_close($curl); //关闭curl
 			}
 			/* 随机改价格 */
 			//$itts[$ui] = str_replace("\"","&quot;", $itts[$ui]);
+			$itts[$ui] = htmlspecialchars($itts[$ui]);
 			$vrs = str_replace("zcyinputtitle",$itts[$ui], $vrs);
 			$vrs = str_replace('zcymainphoto',$mpts[$ui], $vrs);
 			$vrs = str_replace('zcyinputtime',$showtime=date("Ymd")."-".$ui, $vrs);

@@ -15,8 +15,8 @@ if(date("H")>=20)
 	$XXA = 1;
 	$XXB = 0;
 }else{
-	$XXA = -2;
-	$XXB = -3;
+	$XXA = 0;
+	$XXB = -1;
 }
 
 function login_ibay($web_username,$web_password,$web_site){

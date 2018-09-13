@@ -103,18 +103,17 @@ require_once "random_compat/lib/random.php";
     <form action="./upload.php" method="post">
   	<select id="pic[]" name="pic[]" multiple="multiple" class="image-picker" style="display:none">';
 
-  for($i=0;$i<16;$i++)
+  for($i=0;$i<12;$i++)
   {
-
 
   //生成 1000*1000
   $background = imagecreatetruecolor(1000, 1000);
   $white = imagecolorallocate($background, 255, 255, 255);
   imagefill($background, 0, 0, $white);
   // 合成图片
+
   if(strstr($_POST["layout"],"1L3R") == true)
   {
-
     $layout_left_pic = layout_image_count(1,"left");
     $layout_right_pic = layout_image_count(3,"right");
     //left
@@ -126,7 +125,6 @@ require_once "random_compat/lib/random.php";
 
     unset($layout_left_pic);
     unset($layout_right_pic);
-
   }
 
   if(strstr($_POST["layout"],"1L2R") == true)
@@ -232,7 +230,7 @@ require_once "random_compat/lib/random.php";
     imagecopymerge($background, $layout_right_pic[15], 500, 750, 0, 0, imagesx($layout_right_pic[11]), imagesy($layout_right_pic[11]), 100);
     imagecopymerge($background, $layout_right_pic[16], 750, 750, 0, 0, imagesx($layout_right_pic[12]), imagesy($layout_right_pic[12]), 100);
 
-    if(random_int(0,100)%2 == 0){
+    if( random_int(0,100) % 2 == 0 || strstr($_POST["layout"],"SIDE") == true){
       $layout_side_pic = layout_image_count(1,"../side");
       imagecopymerge($background, $layout_side_pic[1], 0, 0, 0, 0, imagesx($layout_side_pic[1]), imagesy($layout_side_pic[1]), 100);
     }
@@ -261,6 +259,34 @@ require_once "random_compat/lib/random.php";
 
   }
 
+  if(strstr($_POST["layout"],"4-1") == true)
+  {
+
+    $layout_4_pic = layout_image_count(12,"4");
+    $layout_1_pic = layout_image_count(1,"1");
+
+    imagecopymerge($background, $layout_4_pic[1], 0, 0, 0, 0, imagesx($layout_4_pic[1]), imagesy($layout_4_pic[1]), 100);
+    imagecopymerge($background, $layout_4_pic[2], 250, 0, 0, 0, imagesx($layout_4_pic[2]), imagesy($layout_4_pic[2]), 100);
+    imagecopymerge($background, $layout_4_pic[3], 500, 0, 0, 0, imagesx($layout_4_pic[3]), imagesy($layout_4_pic[3]), 100);
+    imagecopymerge($background, $layout_4_pic[4], 750, 0, 0, 0, imagesx($layout_4_pic[4]), imagesy($layout_4_pic[4]), 100);
+
+    imagecopymerge($background, $layout_4_pic[5], 0, 250, 0, 0, imagesx($layout_4_pic[5]), imagesy($layout_4_pic[5]), 100);
+    imagecopymerge($background, $layout_1_pic[1], 250, 250, 0, 0, imagesx($layout_1_pic[1]), imagesy($layout_1_pic[1]), 100);
+    imagecopymerge($background, $layout_4_pic[6], 750, 250, 0, 0, imagesx($layout_4_pic[6]), imagesy($layout_4_pic[6]), 100);
+
+    imagecopymerge($background, $layout_4_pic[7], 0, 500, 0, 0, imagesx($layout_4_pic[7]), imagesy($layout_4_pic[7]), 100);
+    imagecopymerge($background, $layout_4_pic[8], 750, 500, 0, 0, imagesx($layout_4_pic[8]), imagesy($layout_4_pic[8]), 100);
+
+    imagecopymerge($background, $layout_4_pic[9], 0, 750, 0, 0, imagesx($layout_4_pic[9]), imagesy($layout_4_pic[9]), 100);
+    imagecopymerge($background, $layout_4_pic[10], 250, 750, 0, 0, imagesx($layout_4_pic[10]), imagesy($layout_4_pic[10]), 100);
+    imagecopymerge($background, $layout_4_pic[11], 500, 750, 0, 0, imagesx($layout_4_pic[11]), imagesy($layout_4_pic[11]), 100);
+    imagecopymerge($background, $layout_4_pic[12], 750, 750, 0, 0, imagesx($layout_4_pic[12]), imagesy($layout_4_pic[12]), 100);
+
+    unset($layout_4_pic);
+    unset($layout_1_pic);
+
+  }
+
 
   if($_POST["watermark_L"] && random_int(0,100)%2 == 0)
   {
@@ -274,7 +300,7 @@ require_once "random_compat/lib/random.php";
   }
 
   // 输出合成图片
-  imagejpeg($background, './download/picture/'.$_POST["picture"].'/'.$i.'.jpg', 85);
+  imagejpeg($background, './download/picture/'.$_POST["picture"].'/'.$i.'.jpg', 90);
   imagedestroy($background);
   echo '
   <option data-img-src="./download/picture/'.$_POST["picture"].'/'.$i.'.jpg" value="./download/picture/'.$_POST["picture"].'/'.$i.'.jpg">./download/picture/'.$_POST["picture"].'/'.$i.'.jpg</option>
@@ -353,10 +379,15 @@ require_once "random_compat/lib/random.php";
   }
   echo '</select>
   <select name="layout" id="layout" style="width:80px;height:30px;">
-  <option value="1L3R" checked>1L3R</option>
+
+  <option value="1L3R">1L3R</option>
   <option value="1L2R">1L2R</option>
   <option value="1L1R">1L1R</option>
-  
+
+  <optgroup label="CZ_HC">
+  <option value="4-1">4-1</option>
+  </optgroup>
+
   <optgroup label="ZD,CZ_HC">
   <option value="1L3X4R_0">1L3X4R_0</option>
   </optgroup>
@@ -370,12 +401,19 @@ require_once "random_compat/lib/random.php";
   <option value="4X3_2">4X3_2</option>
   <option value="4X3_3">4X3_3</option>
   </optgroup>
-  <optgroup label="shaggy">
+
+  <optgroup label="shaggy,BOB">
   <option value="4X4_0">4X4_0</option>
   <option value="4X4_1">4X4_1</option>
   <option value="3X3_0">3X3_0</option>
   <option value="3X3_1">3X3_1</option>
   </optgroup>
+
+  <optgroup label="BOB">
+  <option value="4X4_SIDE_0">4X4_SIDE_0</option>
+  <option value="4X4_SIDE_1">4X4_SIDE_1</option>
+  </optgroup>
+
   </select>
   </td>
   </tr>

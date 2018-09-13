@@ -1101,6 +1101,8 @@ return $contents;
           <option value="363344">TH-DLF</option>
           <option value="424914">TH-ZD</option>
           <option value="203877">TH-shaggy</option>
+          <option value="478653">TH-BCW</option>
+          <option value="484612">TH-CZ+HC</option>
   									</optgroup>
   				<optgroup label="AM">
           <option value="272638">AM-360plus-</option>
