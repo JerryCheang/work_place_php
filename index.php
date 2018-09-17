@@ -1,6 +1,6 @@
 <?php
 date_default_timezone_set("Asia/Hong_Kong");
-require_once "random_compat/lib/random.php";
+require_once "../vendor/paragonie/random_compat/lib/random.php";
 
 //composer require phpoffice/phpspreadsheet
 require '../vendor/autoload.php';

@@ -1,7 +1,7 @@
 <?php
 include('src/conn_mysql.php');
 set_time_limit(0);
-require_once "random_compat/lib/random.php";
+require_once "../vendor/paragonie/random_compat/lib/random.php";
 date_default_timezone_set("Asia/Hong_Kong");
 
 if($_POST["submit"]=="OPEN")
@@ -111,8 +111,8 @@ curl_close($curl); //关闭curl
 		}
 	}
 	</script>';
-	function random_6(){
-		for($i=0;$i<=6;$i++){
+	function random_6 ($random_len){
+		for($i=1; $i<= $random_len ;$i++){
 			if(random_int(0,100)%2 == 0){
 				$rc .= chr(random_int(65,90));
 			}
@@ -182,10 +182,10 @@ curl_close($curl); //关闭curl
 						}
 					}
 				}
-				$vrs = str_replace('zcyrandom1',random_6(), $vrs);
-				$vrs = str_replace('zcyrandom2',random_6(), $vrs);
-				$vrs = str_replace('zcyrandom3',random_6(), $vrs);
-				$vrs = str_replace('zcyskurandom',random_6(), $vrs);
+				$vrs = str_replace('zcyrandom1',random_6(4), $vrs);
+				$vrs = str_replace('zcyrandom2',random_6(4), $vrs);
+				$vrs = str_replace('zcyrandom3',random_6(4), $vrs);
+				$vrs = str_replace('zcyskurandom',random_6(4), $vrs);
 
 				if(random_int(0,100)%2 == 0){
 					$vrs = str_replace('zcy_capsize','Average', $vrs);
@@ -258,10 +258,10 @@ curl_close($curl); //关闭curl
 					}
 				}
 			}
-			$vrs = str_replace('zcyrandom1',random_6(), $vrs);
-			$vrs = str_replace('zcyrandom2',random_6(), $vrs);
-			$vrs = str_replace('zcyrandom3',random_6(), $vrs);
-			$vrs = str_replace('zcyskurandom',random_6(), $vrs);
+			$vrs = str_replace('zcyrandom1',random_6(4), $vrs);
+			$vrs = str_replace('zcyrandom2',random_6(4), $vrs);
+			$vrs = str_replace('zcyrandom3',random_6(4), $vrs);
+			$vrs = str_replace('zcyskurandom',random_6(4), $vrs);
 			if(random_int(0,100)%2 == 0){
 				$vrs = str_replace('zcy_capsize','Average', $vrs);
 			}else if(random_int(0,100)%2 == 0){

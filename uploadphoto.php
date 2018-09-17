@@ -1,6 +1,5 @@
 <?php
 set_time_limit(0);
-require_once "random_compat/lib/random.php";
 include('src/conn_mysql.php');
 
 $post = array (

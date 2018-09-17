@@ -1,6 +1,6 @@
 <?php
 set_time_limit(0);
-require_once "random_compat/lib/random.php";
+require_once "../vendor/paragonie/random_compat/lib/random.php";
 date_default_timezone_set("Asia/Hong_Kong");
 
 
