@@ -15,6 +15,8 @@ $itts = str_replace("Uk", "UK", $itts);
 $itts = str_replace("Us", "US", $itts);
 $itts = str_replace("Usa", "USA", $itts);
 $itts = str_replace("USa", "USA", $itts);
+$itts = str_replace("0Cm", "0cm", $itts);
+$itts = str_replace("5Cm", "5cm", $itts);
 
 $mpts = $_POST["imgurl"];
 if(count($mpts) != count($itts))
@@ -109,7 +111,7 @@ curl_close($curl); //关闭curl
 		}
 	}
 	</script>';
-	function ramdom_6(){
+	function random_6(){
 		for($i=0;$i<=6;$i++){
 			if(random_int(0,100)%2 == 0){
 				$rc .= chr(random_int(65,90));
@@ -180,10 +182,25 @@ curl_close($curl); //关闭curl
 						}
 					}
 				}
-				$vrs = str_replace('zcyramdom1',ramdom_6(), $vrs);
-				$vrs = str_replace('zcyramdom2',ramdom_6(), $vrs);
-				$vrs = str_replace('zcyramdom3',ramdom_6(), $vrs);
-				$vrs = str_replace('zcyskuramdom',ramdom_6(), $vrs);
+				$vrs = str_replace('zcyrandom1',random_6(), $vrs);
+				$vrs = str_replace('zcyrandom2',random_6(), $vrs);
+				$vrs = str_replace('zcyrandom3',random_6(), $vrs);
+				$vrs = str_replace('zcyskurandom',random_6(), $vrs);
+
+				if(random_int(0,100)%2 == 0){
+					$vrs = str_replace('zcy_capsize','Average', $vrs);
+				}else if(random_int(0,100)%2 == 0){
+					$vrs = str_replace('zcy_capsize','One Size', $vrs);
+				}else if(random_int(0,100)%2 == 0){
+					$vrs = str_replace('zcy_capsize','Medium', $vrs);
+				}else{
+					$vrs = str_replace('zcy_capsize','Adjustable', $vrs);
+				}
+
+				if(random_int(0,100)%2 == 0){
+					$vrs = str_replace("<option value=\"China\" >","'value=\"China\" selected>'", $vrs);
+				}
+
 				$html = fopen($ui.".html", "w") or die("Unable to open file!");
 				fwrite($html, $vrs);
 				fclose($html);
@@ -241,10 +258,24 @@ curl_close($curl); //关闭curl
 					}
 				}
 			}
-			$vrs = str_replace('zcyramdom1',ramdom_6(), $vrs);
-			$vrs = str_replace('zcyramdom2',ramdom_6(), $vrs);
-			$vrs = str_replace('zcyramdom3',ramdom_6(), $vrs);
-			$vrs = str_replace('zcyskuramdom',ramdom_6(), $vrs);
+			$vrs = str_replace('zcyrandom1',random_6(), $vrs);
+			$vrs = str_replace('zcyrandom2',random_6(), $vrs);
+			$vrs = str_replace('zcyrandom3',random_6(), $vrs);
+			$vrs = str_replace('zcyskurandom',random_6(), $vrs);
+			if(random_int(0,100)%2 == 0){
+				$vrs = str_replace('zcy_capsize','Average', $vrs);
+			}else if(random_int(0,100)%2 == 0){
+				$vrs = str_replace('zcy_capsize','One Size', $vrs);
+			}else if(random_int(0,100)%2 == 0){
+				$vrs = str_replace('zcy_capsize','Medium', $vrs);
+			}else{
+				$vrs = str_replace('zcy_capsize','Adjustable', $vrs);
+			}
+
+			if(random_int(0,100)%2 == 0){
+				$vrs = str_replace("<option value=\"China\" >","'value=\"China\" selected>'", $vrs);
+			}
+
 			$html = fopen($ui.".html", "w") or die("Unable to open file!");
 			fwrite($html, $vrs);
 			fclose($html);
@@ -314,7 +345,6 @@ curl_close($curl); //关闭curl
 	{
 		if( strlen($ts[$i]) < 40 )
 		{
-			$i++;
 			continue;
 		}
 		$post1 = array (

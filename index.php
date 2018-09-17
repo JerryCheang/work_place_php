@@ -95,7 +95,7 @@ $html_meun_lock = '
 $html_meun = '
 <li id="type_picture_search"><a class="waves-effect" href="?action=picture_search" >Pictures Search</a></li>
 <li id="type_clear_zero"><a class="waves-effect" href="?action=clear_zero" >Clear Zero</a></li>
-<li id="type_transaction_sold"><a class="waves-effect" href="?action=transaction_sold" >Transaction Sold</a></li>
+<!-- <li id="type_transaction_sold"><a class="waves-effect" href="?action=transaction_sold" >Transaction Sold</a></li>-->
 ';
 
 $html_active = 'class="active blue"';

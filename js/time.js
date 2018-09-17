@@ -148,7 +148,7 @@ var WINDOW_WIDTH = 400;
 		function drawDatetime(cxt){
 			var nums = [];
 
-			context.fillStyle="#005eac"
+			context.fillStyle="#ffffff"
 			var date = new Date();
 			var offsetX = 70, offsetY = 30;
 			var hours = date.getHours();
