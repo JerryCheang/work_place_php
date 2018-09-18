@@ -1,4 +1,6 @@
 <?php
+require_once "../vendor/paragonie/random_compat/lib/random.php";
+
 function deleteAll($path) {
     $op = dir($path);
     while(false != ($item = $op->read())) {
@@ -80,8 +82,6 @@ header('Content-length:'.$filesize);
 unlink('./'.$_POST["picture_name"].date("Ymd",strtotime("0 day")).'.zip');
 
 }else if($_POST["picture"]){
-
-require_once "../vendor/paragonie/random_compat/lib/random.php";
   echo '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
   <html xmlns="http://www.w3.org/1999/xhtml">
   <head>

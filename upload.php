@@ -9,11 +9,6 @@ $post = array (
 );
 //登录地址
 $url = "http://".$web_site."/index.php/myibay/login";
-//设置cookie保存路径
-//$cookie = dirname(__FILE__) . '/cookie_ibay.txt'; //2018-4-1 摆脱文件cookies
-//登录后要获取信息的地址
-$url2 = "http://".$web_site."/index.php?controller=toebay&action=items&tab=0";
-//模拟登录
 //login_post($url, $cookie, $post);
 $curl = curl_init();//初始化curl模块
 curl_setopt($curl, CURLOPT_URL, $url);//登录提交的地址

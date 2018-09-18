@@ -10,6 +10,7 @@ define('DBUSER', $sis[1]);
 define('DBPWD', $sis[2]);
 define('DBNAME1', $sis[3]);
 define('DBNAME2', $sis[4]);
+define('DBNAME3', $sis[5]);
 define('DBPREFIX', 'hw_');
 define('DBCHARSET', 'utf8');
 define('CONN', '');
@@ -31,7 +32,7 @@ try{
     }
 
 }catch(PDOException  $e ){
-    //echo '连接web数据库失败！';
+    echo '连接web数据库失败！';
     exit;
 }
 
@@ -42,5 +43,16 @@ try{
 
 }catch(PDOException  $e ){
     echo '连接test数据库失败！';
+    exit;
+}
+
+try{
+
+    $db_varations_image = new PDO('mysql:host='.DBHOST.';dbname='.DBNAME3, DBUSER, DBPWD);
+    $db_varations_image->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $db_varations_image->query('SET NAMES utf8;');
+
+}catch(PDOException  $e ){
+    echo '连接varations_image数据库失败！';
     exit;
 }
