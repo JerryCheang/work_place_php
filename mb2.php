@@ -150,24 +150,40 @@ curl_close($curl); //关闭curl
 				break;
 			}
 			$vrs = $rs; //重新载入页面
+
 			/* 随机改价格 */
 			$i = 1;
 			for($i1 = 0; $i > 0; $i1 = $i + 1)
 			{
-				$i = strpos($vrs,"\"StartPrice\":\"", $i1 );
-				$j = strpos($vrs, '.' , $i);
+			unset($k_bool);
+			$i = strpos($vrs,"\"StartPrice\":\"", $i1 );
+
+			if(!$i){
+			$i = strpos($vrs,"\"StartPrice\":", $i1 );
+			$k_bool = 1;
+			}
+
+			$j = strpos($vrs, '.' , $i);
+
+			if(!$k_bool){
 				$k = strpos($vrs, '"' , $j);
+			}else{
+				$k = strpos($vrs, ',' , $j);
+			}
+
 				$l = $k - $i;
-				if($i == false)
+				if(!$i)
 				{
 					break;
 				}
+
 				$r = substr($vrs, $i + 14 , $l - 14);
 				$rr = "0.0".random_int(8,9);
 				$rf = $r - $rr;
 				$vrs = substr_replace($vrs, $rf,$i + 14 , $l - 14);
 			}
 			/* 随机改价格 */
+
 			//$itts[$ui] = str_replace("\"","&quot;", $itts[$ui]);
 			$itts[$ui] = htmlspecialchars($itts[$ui]);
 			$vrs = str_replace("zcyinputtitle",$itts[$ui], $vrs);
