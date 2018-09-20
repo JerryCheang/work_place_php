@@ -7,29 +7,6 @@ require '../vendor/autoload.php';
 include('src/conn_mysql.php');
 
 function html_return($html_content,$html_meun,$web_password){
-  if($_POST["submit"]=="setLogin")
-  {
-  setcookie("username",$_POST["ibyusr"], time()+3600*24*31);
-  setcookie("password",$_POST["ibypwd"], time()+3600*24*31);
-  echo "<html><head><title>稍候。。。</title></head>
-  <body>
-  <script language='javascript'>document.location = '/index.php'</script>
-  </body>
-  </html>";
-  }
-
-  if($_COOKIE["password"] != $web_password && $_COOKIE["password"] != "123321")
-  {
-    return '
-    <form action="" method="post">
-    <label>user: </label>
-    <input id="ibyusr" name="ibyusr" value="" type="text" style="width:100px;height:20px;">
-    <label>passwd: </label>
-    <input id="ibypwd" name="ibypwd" value="" type="password" style="width:100px;height:20px;">
-    <input id="submit" name="submit" value="setLogin" type="submit" style="width:70px;height:25px;">
-    </form><br/>
-    ';
-  }else{
   return '<html lang="en">
   	<head>
       <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -82,7 +59,6 @@ function html_return($html_content,$html_meun,$web_password){
       </main>
   </body></html>
   ';
-  }
 }
 
 $html_meun_lock = '
@@ -1173,6 +1149,14 @@ return $contents;
   								</optgroup>
 
   			</select>
+
+        <select id="ebaysellerid" name="ebaysellerid" style="width:150px;height:30px;">
+        <option value="anothermart">anothermart</option>
+        <option value="tracy.hair">tracy.hair</option>
+        <option value="us.city-boutique">us.city-boutique</option>
+        <option value="hair_trends">hair_trends</option>
+        </select>
+
   <input id="submit" name="submit" value="Edit Muban" type="submit" style="width:100px;height:30px;">
   </form>';
   echo html_return($html_content,$html_meun,$web_password);

@@ -31,6 +31,29 @@ try{
       $web_site = $result["ibay_site"];
     }
 
+    if($_POST["submit"]=="setLogin")
+    {
+    setcookie("username",$_POST["ibyusr"], time()+3600*24*31);
+    setcookie("password",$_POST["ibypwd"], time()+3600*24*31);
+    echo "<html><head><title>稍候。。。</title></head>
+    <body>
+    <script language='javascript'>document.location = '/index.php'</script>
+    </body>
+    </html>";
+    exit;
+    }
+
+    if($_COOKIE["password"] != $web_password && $_COOKIE["password"] != "123321"){
+      echo '<form action="" method="post">
+          <label>user: </label>
+          <input id="ibyusr" name="ibyusr" value="" type="text" style="width:100px;height:20px;">
+          <label>passwd: </label>
+          <input id="ibypwd" name="ibypwd" value="" type="password" style="width:100px;height:20px;">
+          <input id="submit" name="submit" value="setLogin" type="submit" style="width:70px;height:25px;">
+          </form><br/>';
+      exit;
+    }
+
 }catch(PDOException  $e ){
     echo '连接web数据库失败！';
     exit;

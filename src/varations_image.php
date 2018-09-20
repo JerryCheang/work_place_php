@@ -11,7 +11,6 @@ $post = array (
 	'password' => $_COOKIE["password"],
 	'submit' => '登录'
 );
-
 //登录地址
 $url = "http://".$web_site."/index.php/myibay/login";
 $curl = curl_init();//初始化curl模块
@@ -28,23 +27,8 @@ list($header, $body) = explode("\r\n\r\n", $content);
 preg_match("/Set\-Cookie: ([^\r\n]*)/i", $header, $matches);
 echo $cookie = $matches[1]; //获得COOKIE（SESSIONID）
 curl_close($curl); //关闭curl
+
 /* 解析cookie结束 */
-
-
-function deleteAll($path) {
-    $op = dir($path);
-    while(false != ($item = $op->read())) {
-        if($item == '.' || $item == '..') {
-            continue;
-        }
-        if(is_dir($op->path.'/'.$item)) {
-            deleteAll($op->path.'/'.$item);
-            rmdir($op->path.'/'.$item);
-        } else {
-            unlink($op->path.'/'.$item);
-        }
-    }
-}
 
 $list_dir = scandir("../varations_image");
 
@@ -54,58 +38,98 @@ curl_setopt($ch , CURLOPT_RETURNTRANSFER, 1);
 curl_setopt($ch , CURLOPT_POST, 1);
 curl_setopt($ch, CURLOPT_COOKIE, $cookie);
 
+unset($dir_bool);
+
 for($i_dir=2; $i_dir < count($list_dir); $i_dir++){
-  $selleruserid = "hair_trends";
 
-  $list_pics = scandir("../varations_image/".$list_dir[$i_dir]);
+	$selleruserid = "hair_trends";
 
-  $creat_sql = "CREATE TABLE "."random_".$selleruserid."_".$list_dir[$i_dir]."
-  (
-  muban_count varchar(255),
-  sku varchar(255),
-  random_id varchar(255),
-  url varchar(255)
-  )";
+	$list_pics = scandir("../varations_image/".$list_dir[$i_dir]);
+	$sql_table_name = date("Y_m_d",strtotime("0 day"))."_random_".$selleruserid;
 
-  $del_sql = "DROP table "."random_".$selleruserid."_".$list_dir[$i_dir];
+	$creat_sql = "CREATE TABLE ".$sql_table_name."
+	(
+	muban_count varchar(255),
+	sku varchar(255),
+	random_id varchar(255),
+	url varchar(255)
+	)";
 
-  try {
-      $db_varations_image->query($creat_sql);
-      $return .=  '</br>Creat success';
-  } catch (Exception $e) {
-      $db_varations_image->query($del_sql);
-      $db_varations_image->query($creat_sql);
-  }
+	try {
+			$db_varations_image->query($creat_sql);
+			echo '</br>Creat success';
+	} catch (Exception $e) {
 
-
+	}
 
   for($i_muban_count = 1; $i_muban_count <= 6; $i_muban_count ++){
 
-    //deleteAll('../download/varations_image/'.$list_dir[$i_dir]."/".$i_muban_count);
     mkdir('../download/varations_image/'.$list_dir[$i_dir]."/".$i_muban_count,0777,true);
 
     for($i_pics = 2; $i_pics < count($list_pics); $i_pics++){
+
       $random_id_count = $i_pics - 1;
       $random_id = chr(random_int(65,90)).chr(random_int(65,90)).$random_id_count;
       $sku = str_replace(".JPG","",$list_pics[$i_pics]);
+
+			for($i_tag_sku = 1; $i_tag_sku <= 6; $i_tag_sku++){
+				$remove_tag_sku = str_replace("_tag_".$i_tag_sku, "", $sku);
+			}
+
+			$rows = $db_varations_image->query('select * from '.$sql_table_name)->fetchAll();
+			$row_count = $db_varations_image->query('select * from '.$sql_table_name)->rowCount();
+
+			$url_bool = 1;
+			unset($url_update);
+			for( $i = 0; $i < $row_count; $i++ ){
+
+				if($rows[$i]['muban_count'] == $i_muban_count
+				&& $rows[$i]['sku'] == $sku
+				&& !$rows[$i]['url']){
+					$url_update = 1;
+					$random_id = $rows[$i]['random_id'];
+					break;
+				}
+
+				if(strstr($rows[$i]['sku'], $remove_tag_sku)){
+					$random_id = $rows[$i]['random_id'];
+				}
+
+				if($rows[$i]['muban_count'] == $i_muban_count
+				&& $rows[$i]['sku'] == $sku
+				&& $rows[$i]['url']){
+					unset($url_bool);
+				}
+
+			}
+
+			if(!$url_bool){
+				continue;
+			}
+
       $pics = imagecreatefromjpeg("../varations_image/".$list_dir[$i_dir]."/".$list_pics[$i_pics]);
 
       $newImg = imagecreatetruecolor(1000,1000);
       imagecopyresampled($newImg,$pics,0,0,0,0,1000,1000,imagesx($pics),imagesy($pics));
 
-      $font = "../CENSCBK.TTF";//c盘windows/fonts
+      $font = "../CENSCBK.TTF";
       //设置字体的颜色rgb和透明度
       $col = imagecolorallocatealpha($newImg,218,112,214,15);
       //写入文字
 
-      $fontSize  = 75; //18号字体
       $fontWidth = imagefontwidth($fontSize);//获取文字宽度
       $textWidth = $fontWidth * mb_strlen($text1);
       $x = ceil(($width - $textWidth) / 2); //计算文字的水平位置
 
-      imagettftext($newImg, $fontSize, $x, 400, 920, $col, $font, $random_id);
+			if(strstr($list_dir[$i_dir],"HF")){
+				$fontSize  = 60;
+				$y = 180;
+			}else{
+				$fontSize  = 75;
+				$y = 920;
+			}
 
-    //  imagettftext($newImg,75,0,20,60,$col,$font,$random_id);
+			imagettftext($newImg, $fontSize, $x, 400, $y, $col, $font, $random_id);
       $pic_path = '../download/varations_image/'.$list_dir[$i_dir]."/".$i_muban_count.'/'.$sku.'.jpg';
       imagejpeg($newImg,$pic_path, 90);
       imagedestroy($pics);
@@ -125,18 +149,27 @@ for($i_dir=2; $i_dir < count($list_dir); $i_dir++){
       unset($matches);
       $output = str_replace("http:", "https:", $output);
       preg_match("/https:\/\/i.ebayimg.com(.*)_3.JPG/iU", $output, $matches);
-      $sql_insert = "insert into random_".$selleruserid."_".$list_dir[$i_dir]."(muban_count,sku,random_id,url)
+
+			if($url_update){
+
+			$sql_insert = "UPDATE ".$sql_table_name." SET url = '".$matches[0]."' where "."muban_count = '".$i_muban_count."'"." and sku = '".$sku."' and random_id = '".$random_id."'";
+
+			}else{
+
+      $sql_insert = "insert into ".$sql_table_name."(muban_count,sku,random_id,url)
       values('".$i_muban_count."','".$sku."','".$random_id."','".$matches[0]."')";
 
-      try {
-        $db_varations_image->query($sql_insert);
-      } catch (Exception $e) {
-        $return .=  $e->getMessage();
+			}
+
+			try {
+        	$db_varations_image->query($sql_insert);
+					echo $sql_insert."<br/>".$list_dir[$i_dir];
+      	} catch (Exception $e) {
+        	echo $e."<br/>".$sql_insert;
       }
 
-    }
-  }
-
+    	}
+  	}
 
 }
 

@@ -4,12 +4,31 @@ set_time_limit(0);
 require_once "../vendor/paragonie/random_compat/lib/random.php";
 date_default_timezone_set("Asia/Hong_Kong");
 
+function jsformat($str) {
+	$str = trim($str);
+	$str = str_replace('\\s\\s', '\\s', $str);
+	$str = str_replace(chr(10), '', $str);
+	$str = str_replace(chr(13), '', $str);
+	//$str = str_replace(' ', '', $str);
+	$str = str_replace('\\', '\\\\', $str);
+	$str = str_replace('"', '\\"', $str);
+	$str = str_replace('\\\'', '\\\\\'', $str);
+	$str = str_replace("'", "\'", $str);
+	return $str;
+}
+
 if($_POST["submit"]=="OPEN")
 {
 //设置post的数据
 
 $itts = explode(PHP_EOL, $_POST["inputtitle"]);
 $itts = str_replace(array("\r\n", "\r", "\n"), '', $itts);
+
+for($i = 0 ; $i <= count($itts); $i++){
+	if( strlen($itts[$i]) < 40 ){
+		unset($itts[$i]);
+	}
+}
 
 $itts = str_replace("Uk", "UK", $itts);
 $itts = str_replace("Us", "US", $itts);
@@ -22,8 +41,9 @@ $mpts = $_POST["imgurl"];
 if(count($mpts) != count($itts))
 {
 	echo "数量不一致！";
-	return;
-}else{
+	exit;
+}
+
 $post = array (
 	'username' => $_COOKIE["username"],
 	'password' => $_COOKIE["password"],
@@ -123,93 +143,13 @@ curl_close($curl); //关闭curl
 		return $rc;
 	}
 
-			for( $ui = 0 ; $ui< count($itts) ; $ui++ )
+			for( $ui = 0 ; $ui <= count($itts) ; $ui++ )
 		{
-			$vrs = $rs; //重新载入页面
 			if( strlen($mpts[$ui]) < 5 )
 			{
 				break;
 			}
-
-			if($ui==0)
-			{
-				/* 随机改价格 */
-				$i = 1;
-				for($i1 = 0; $i > 0; $i1 = $i + 1)
-				{
-					$i = strpos($vrs,"\"StartPrice\":\"", $i1 );
-					$j = strpos($vrs, '.' , $i);
-					$k = strpos($vrs, '"' , $j);
-					$l = $k - $i;
-					if($i == false)
-					{
-						break;
-					}
-					$r = substr($vrs, $i + 14 , $l - 14);
-					$rr = "0.0".random_int(7,9);
-					$rf = $r - $rr;
-					$vrs = substr_replace($vrs, $rf,$i + 14 , $l - 14);
-				}
-				/* 随机改价格 */
-				//$itts[$ui] = str_replace("\"","&quot;", $itts[$ui]);
-				$itts[0] = htmlspecialchars($itts[0]);
-				$vrs = str_replace("zcyinputtitle",$itts[0], $vrs);
-				$vrs = str_replace('zcymainphoto',$mpts[0], $vrs);
-				$vrs = str_replace('zcymainphoto',$mpts[0], $vrs);
-				$vrs = str_replace('zcyinputtime',$showtime=date("Ymd")."-".$ui, $vrs);
-				$vrs = str_replace('http://i.ebayimg.com','https://i.ebayimg.com', $vrs);
-
-				if(strpos($vrs,'value="Human Hair"') == true)
-				{
-					if(strpos($itts[0],'Malaysian') == true){
-						$vrs = str_replace('value="Malaysian Hair" class="is_specific"','checked value="Malaysian Hair" class="is_specific"', $vrs);
-					}else if(strpos($itts[0],'Brazilian') == true){
-						$vrs = str_replace('value="Brazilian Hair" class="is_specific"','checked value="Brazilian Hair" class="is_specific"', $vrs);
-					}else if(strpos($itts[0],'Indian') == true){
-						$vrs = str_replace('value="Indian Hair" class="is_specific"','checked value="Indian Hair" class="is_specific"', $vrs);
-					}else{
-						if(random_int(0,100)%2 == 0){
-							$vrs = str_replace('value="Russian Hair" class="is_specific"','checked value="Russian Hair" class="is_specific"', $vrs);
-						}
-						if(random_int(0,100)%2 == 0){
-							$vrs = str_replace('value="Malaysian Hair" class="is_specific"','checked value="Malaysian Hair" class="is_specific"', $vrs);
-						}
-						if(random_int(0,100)%2 == 0){
-							$vrs = str_replace('value="Brazilian Hair" class="is_specific"','checked value="Brazilian Hair" class="is_specific"', $vrs);
-						}
-						if(random_int(0,100)%2 == 0){
-							$vrs = str_replace('value="Indian Hair" class="is_specific"','checked value="Indian Hair" class="is_specific"', $vrs);
-						}
-					}
-				}
-				$vrs = str_replace('zcyrandom1',random_6(4), $vrs);
-				$vrs = str_replace('zcyrandom2',random_6(4), $vrs);
-				$vrs = str_replace('zcyrandom3',random_6(4), $vrs);
-				$vrs = str_replace('zcyskurandom',random_6(4), $vrs);
-
-				if(random_int(0,100)%2 == 0){
-					$vrs = str_replace('zcy_capsize','Average', $vrs);
-				}else if(random_int(0,100)%2 == 0){
-					$vrs = str_replace('zcy_capsize','One Size', $vrs);
-				}else if(random_int(0,100)%2 == 0){
-					$vrs = str_replace('zcy_capsize','Medium', $vrs);
-				}else{
-					$vrs = str_replace('zcy_capsize','Adjustable', $vrs);
-				}
-
-				if(random_int(0,100)%2 == 0){
-					$vrs = str_replace("<option value=\"China\" >","'value=\"China\" selected>'", $vrs);
-				}
-
-				$html = fopen($ui.".html", "w") or die("Unable to open file!");
-				fwrite($html, $vrs);
-				fclose($html);
-				echo '
-				<iframe id="mubaninput0" name="mubaninput0" style="width:455px;height:250px;" src="'.$ui.'.html">
-				</iframe>
-				';
-				continue;
-			}
+			$vrs = $rs; //重新载入页面
 			/* 随机改价格 */
 			$i = 1;
 			for($i1 = 0; $i > 0; $i1 = $i + 1)
@@ -233,7 +173,13 @@ curl_close($curl); //关闭curl
 			$vrs = str_replace("zcyinputtitle",$itts[$ui], $vrs);
 			$vrs = str_replace('zcymainphoto',$mpts[$ui], $vrs);
 			$vrs = str_replace('zcyinputtime',$showtime=date("Ymd")."-".$ui, $vrs);
-			$vrs = str_replace('http://i.ebayimg.com','https://i.ebayimg.com', $vrs);
+
+			for($i_chr = 65; $i_chr < 91; $i_chr++){
+					$vrs = str_replace('http://'.strtolower(chr($i_chr)) , 'https://'.strtolower(chr($i_chr)) , $vrs);
+					$vrs = str_replace('http://'.strtoupper(chr($i_chr)) , 'https://'.strtoupper(chr($i_chr)) , $vrs);
+					$vrs = str_replace('http:\/\/'.strtolower(chr($i_chr)) , 'https:\/\/'.strtolower(chr($i_chr)) , $vrs);
+					$vrs = str_replace('http:\/\/'.strtoupper(chr($i_chr)) , 'https:\/\/'.strtoupper(chr($i_chr)) , $vrs);
+			}
 
 			if(strpos($vrs,'value="Human Hair"') == true)
 			{
@@ -272,6 +218,27 @@ curl_close($curl); //关闭curl
 				$vrs = str_replace('zcy_capsize','Adjustable', $vrs);
 			}
 
+		$varations_img_sql_table_name = date("Y_m_d",strtotime("0 day"))."_random_".$_POST["ebaysellerid"];
+
+		try {
+			$rows = $db_varations_image->query('select * from '.$varations_img_sql_table_name)->fetchAll();
+			$row_count = $db_varations_image->query('select * from '.$varations_img_sql_table_name)->rowCount();
+		} catch (Exception $e) {
+			echo '<script type="text/javascript">
+			alert("'.jsformat($e).'");
+			</script>';
+			unset($rows);
+		}
+
+		if($rows){
+			$count = $ui + 1;
+				for( $i = 0; $i < $row_count; $i++ ){
+					if($rows[$i]['muban_count'] == $count){
+						$vrs = str_replace('zcy_'.$rows[$i]['sku'],$rows[$i]['random_id'], $vrs);
+						$vrs = str_replace('zcy_imgs_'.$rows[$i]['sku'],$rows[$i]['url'], $vrs);
+					}
+				}
+			}
 			if(random_int(0,100)%2 == 0){
 				$vrs = str_replace("<option value=\"China\" >","'value=\"China\" selected>'", $vrs);
 			}
@@ -299,7 +266,7 @@ curl_close($curl); //关闭curl
 				curl_setopt($close, CURLOPT_COOKIE, $cookie);
 				$XX = curl_exec($close);
 				curl_close($close);
-			}
+
 }else if($_POST["submit"] == "CHECK")
 {
 	$post = array (
@@ -345,6 +312,7 @@ curl_close($curl); //关闭curl
 	{
 		if( strlen($ts[$i]) < 40 )
 		{
+
 			continue;
 		}
 		$post1 = array (
@@ -376,8 +344,7 @@ curl_close($curl); //关闭curl
 	curl_setopt($close, CURLOPT_COOKIE, $cookie);
 	$XX = curl_exec($close);
 	curl_close($close);
-}else if($_POST["submit"] == "Edit Muban")
-{
+}else if($_POST["submit"] == "Edit Muban"){
 	echo "<html><head><title>稍候。。。</title></head>
 	<body>
 	<script language='javascript'>document.location = 'http://".$web_site."/index.php?controller=muban&action=lister&tab=0&id=".$_POST['mubanid']."'</script>
