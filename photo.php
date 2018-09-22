@@ -1,21 +1,6 @@
 <?php
 require_once "../vendor/paragonie/random_compat/lib/random.php";
 
-function deleteAll($path) {
-    $op = dir($path);
-    while(false != ($item = $op->read())) {
-        if($item == '.' || $item == '..') {
-            continue;
-        }
-        if(is_dir($op->path.'/'.$item)) {
-            deleteAll($op->path.'/'.$item);
-            rmdir($op->path.'/'.$item);
-        } else {
-            unlink($op->path.'/'.$item);
-        }
-    }
-}
-
 function compressDir($dir, $zip, $prev='.')
 {
     $handler = opendir($dir);
@@ -94,7 +79,6 @@ unlink('./'.$_POST["picture_name"].date("Ymd",strtotime("0 day")).'.zip');
   <body>';
 
   mkdir('./download/picture/'.$_POST["picture"],0777,true);
-  deleteAll('./download/picture/'.$_POST["picture"]);
 
   echo '<div id="container">
   	<h1>随机图像选取生成</h1>

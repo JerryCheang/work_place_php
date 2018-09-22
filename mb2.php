@@ -4,6 +4,17 @@ set_time_limit(0);
 require_once "../vendor/paragonie/random_compat/lib/random.php";
 date_default_timezone_set("Asia/Hong_Kong");
 
+function str_replace_once($needle, $replace, $haystack) {
+    // Looks for the first occurence of $needle in $haystack
+    // and replaces it with $replace.
+    $pos = strpos($haystack, $needle);
+    if ($pos === false) {
+        // Nothing found
+        return $haystack;
+    }
+    return substr_replace($haystack, $replace, $pos, strlen($needle));
+}
+
 function jsformat($str) {
 	$str = trim($str);
 	$str = str_replace('\\s\\s', '\\s', $str);
@@ -155,28 +166,14 @@ curl_close($curl); //关闭curl
 			$i = 1;
 			for($i1 = 0; $i > 0; $i1 = $i + 1)
 			{
-			unset($k_bool);
-			$i = strpos($vrs,"\"StartPrice\":\"", $i1 );
-
-			if(!$i){
-			$i = strpos($vrs,"\"StartPrice\":", $i1 );
-			$k_bool = 1;
-			}
-
-			$j = strpos($vrs, '.' , $i);
-
-			if(!$k_bool){
+				$i = strpos($vrs,"\"StartPrice\":\"", $i1 );
+				$j = strpos($vrs, '.' , $i);
 				$k = strpos($vrs, '"' , $j);
-			}else{
-				$k = strpos($vrs, ',' , $j);
-			}
-
 				$l = $k - $i;
-				if(!$i)
+				if($i == false)
 				{
 					break;
 				}
-
 				$r = substr($vrs, $i + 14 , $l - 14);
 				$rr = "0.0".random_int(8,9);
 				$rf = $r - $rr;
@@ -250,11 +247,12 @@ curl_close($curl); //关闭curl
 			$count = $ui + 1;
 				for( $i = 0; $i < $row_count; $i++ ){
 					if($rows[$i]['muban_count'] == $count){
-						$vrs = str_replace('zcy_'.$rows[$i]['sku'],$rows[$i]['random_id'], $vrs);
-						$vrs = str_replace('zcy_imgs_'.$rows[$i]['sku'],$rows[$i]['url'], $vrs);
+						$vrs = str_replace('zcy_'.$rows[$i]['sku'], $rows[$i]['random_id'], $vrs);
+						$vrs = str_replace_once('zcy_imgs_'.$rows[$i]['sku'], $rows[$i]['url'], $vrs);
 					}
 				}
 			}
+
 			if(random_int(0,100)%2 == 0){
 				$vrs = str_replace("<option value=\"China\" >","'value=\"China\" selected>'", $vrs);
 			}

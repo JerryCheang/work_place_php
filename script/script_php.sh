@@ -4,4 +4,3 @@ setsid php /var/www/html/script/over_zero_ing_2.php
 setsid php /var/www/html/script/over_zero_ing_3.php
 setsid php /var/www/html/script/over_zero_ing_4.php
 setsid php /var/www/html/script/over_zero_ing_5.php
-setsid php /var/www/html/script/sold.php

@@ -1,6 +1,6 @@
 <?php
 date_default_timezone_set('PRC');
-include('../src/conn_mysql.php');
+include('../src/conn_mysql_script.php');
 ignore_user_abort(true);
 set_time_limit(0); // 取消脚本运行时间的超时上限
 

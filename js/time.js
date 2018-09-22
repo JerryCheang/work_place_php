@@ -1,14 +1,14 @@
 $(function(){
 $('#pdata').html('<canvas id="canvas"></canvas>');
-var WINDOW_WIDTH = 400;
-		var WINDOW_HEIGHT = 100;
-		var RADIUS = 2; //鐞冨崐寰�
-		var NUMBER_GAP = 6; //鏁板瓧涔嬮棿鐨勯棿闅�
-		var u=0.66; //纰版挒鑳介噺鎹熻€楃郴鏁�
-		var context; //Canvas缁樺埗涓婁笅鏂�
-		var balls = []; //瀛樺偍褰╄壊鐨勫皬鐞�
-		const colors = ["#33B5E5","#0099CC","#AA66CC","#9933CC","#99CC00","#669900","#FFBB33","#FF8800","#FF4444","#CC0000"]; //褰╄壊灏忕悆鐨勯鑹�
-		var currentNums = []; //灞忓箷鏄剧ず鐨�8涓瓧绗�
+var WINDOW_WIDTH = 2000;
+		var WINDOW_HEIGHT = 105;
+		var RADIUS = 2;
+		var NUMBER_GAP = 6;
+		var u=0.66;
+		var context;
+		var balls = [];
+		const colors = ["#33B5E5","#0099CC","#AA66CC","#9933CC","#99CC00","#669900","#FFBB33","#FF8800","#FF4444","#CC0000"];
+		var currentNums = [];
 		var digit =
                 [
                     [
@@ -150,7 +150,7 @@ var WINDOW_WIDTH = 400;
 
 			context.fillStyle="#ffffff"
 			var date = new Date();
-			var offsetX = 70, offsetY = 30;
+			var offsetX = 160, offsetY = 30;
 			var hours = date.getHours();
 			var num1 = Math.floor(hours/10);
 			var num2 = hours%10;

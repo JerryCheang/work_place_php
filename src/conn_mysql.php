@@ -10,7 +10,6 @@ define('DBUSER', $sis[1]);
 define('DBPWD', $sis[2]);
 define('DBNAME1', $sis[3]);
 define('DBNAME2', $sis[4]);
-define('DBNAME3', $sis[5]);
 define('DBPREFIX', 'hw_');
 define('DBCHARSET', 'utf8');
 define('CONN', '');
@@ -69,13 +68,21 @@ try{
     exit;
 }
 
-try{
 
-    $db_varations_image = new PDO('mysql:host='.DBHOST.';dbname='.DBNAME3, DBUSER, DBPWD);
+try{
+    $db_varations_image = new PDO('mysql:host='.DBHOST.';dbname='."varations_image", DBUSER, DBPWD);
     $db_varations_image->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $db_varations_image->query('SET NAMES utf8;');
-
 }catch(PDOException  $e ){
     echo '连接varations_image数据库失败！';
+    exit;
+}
+
+try{
+    $db_pictures_explorer = new PDO('mysql:host='.DBHOST.';dbname='."pictures_explorer", DBUSER, DBPWD);
+    $db_pictures_explorer->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $db_pictures_explorer->query('SET NAMES utf8;');
+}catch(PDOException  $e ){
+    echo '连接pictures_explorer数据库失败！';
     exit;
 }
