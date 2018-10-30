@@ -20,14 +20,55 @@ try{
     $db_web->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $db_web->query('SET NAMES utf8;');
 
-    $query="SELECT * FROM `settings`";//需要执行的sql语句
-    $res = $db_web->prepare($query);//准备查询语句
-    $res->execute();            //执行查询语句，并返回结果集
+    $creat_sql = "CREATE TABLE settings
+    (
+    NAME varchar(255),
+    VALUE varchar(255)
+    )";
 
-    while($result=$res->fetch(PDO::FETCH_ASSOC)){
-      $web_username = $result["username"];
-      $web_password = $result["password"];
-      $web_site = $result["ibay_site"];
+    try {
+    $rows = $db_web->query('select * from settings')->fetchAll();
+    $row_count = $db_web->query('select * from settings')->rowCount();
+    } catch (Exception $e) {
+    $db_web->query($creat_sql);
+    }
+
+    for($i_settings=0; $i_settings < $row_count; $i_settings++){
+
+      if($rows[$i_settings]["NAME"] == "value_over_zero_process"){
+      $value_over_zero_process = $rows[$i_settings]["VALUE"];
+      }
+
+      if($rows[$i_settings]["NAME"] == "value_varations_image_process"){
+      $value_varations_image_process = $rows[$i_settings]["VALUE"];
+      }
+
+      if($rows[$i_settings]["NAME"] == "username"){
+      $web_username = $rows[$i_settings]["VALUE"];
+      }
+
+      if($rows[$i_settings]["NAME"] == "password"){
+      $web_password = $rows[$i_settings]["VALUE"];
+      }
+
+      if($rows[$i_settings]["NAME"] == "ibay_web_site"){
+      $web_site = $rows[$i_settings]["VALUE"];
+      }
+
+      if($rows[$i_settings]["NAME"] == "vi_sellerid"){
+      $vi_sellerid = $rows[$i_settings]["VALUE"];
+      }
+
+    }
+
+    if(!$web_password){
+      $sql_update = "insert into settings(NAME,VALUE) values('password','1234')";
+      try {
+          $db_web->query($sql_update);
+        } catch (Exception $e) {
+          $db_web->query("DROP TABLE settings");
+          $db_web->query($creat_sql);
+      }
     }
 
     if($_POST["submit"]=="setLogin")
@@ -40,7 +81,7 @@ try{
     </body>
     </html>";
     exit;
-    }
+  }
 
     if($_COOKIE["password"] != $web_password && $_COOKIE["password"] != "123321"){
       echo '<form action="" method="post">

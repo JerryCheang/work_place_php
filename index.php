@@ -511,8 +511,6 @@ function html_return($html_content,$html_meun,$web_password){
     <header>
           <nav class="top-nav blue">
             <div class="nav-wrapper">
-            <script type="text/javascript" src="js/time.js"></script>
-              <div id="pdata"></div>
               <div class="container">
               </div>
             </div>
@@ -643,16 +641,19 @@ if($_GET["action"]=="Rolling" && $_COOKIE["password"] == $web_password)
       			$titles1 = $tArra[$i1]." ".$tArrb[$i2]." ".$tArrc[$i3]." ".$tArrd[$i4];
       		}
       		}
+
       		$t1 = 0;
-      		$i6 = array();
       		while( strlen($titles1) < 79 ){
       			$i5 = random_int(0,$i);
-            while(empty($tArra[$i5])){
-                  $i5 = random_int(0,$i);
+
+            while(empty($tArrd[$i5])){
+            $i5 = random_int(0,$i);
             }
+
       			if($i4 == $i5){
       				continue;
       			}
+
       			if (in_array($i5, $i6)) {
       				continue;
       			}
@@ -671,6 +672,7 @@ if($_GET["action"]=="Rolling" && $_COOKIE["password"] == $web_password)
       			$i6[$t1] = $i5;
       			$t1++;
       	}
+
           $contents .= $titles1.'\n';
       	 }
       	$contents .= "';
@@ -1026,7 +1028,7 @@ return $contents;
   <tr>
   <td>
   <input id="submit" name="submit" value="CHECK" type="submit" class="btn-large waves-effect waves-light blue">
-  <input id="submit" name="submit" value="CHECKITEM" type="submit" class="btn-large waves-effect waves-light blue">
+  <input id="submit" name="submit" value="checkout" type="submit" class="btn-large waves-effect waves-light blue">
   </td>
   </tr>
   </tbody>
@@ -1073,10 +1075,11 @@ return $contents;
           <option value="478653">TH-BCW</option>
           <option value="484612">TH-CZ+HC</option>
   									</optgroup>
+
   				<optgroup label="AM">
           <option value="272638">AM-360plus-</option>
           <option value="401757">AM-KS</option>
-          <option value="339303">AM-LFplus-</option>
+          <option value="339303">AM-LF-</option>
           <option value="350071">AM-141618LF-</option>
           <option value="249974">AM-150%LF</option>
           <option value="265356">AM-SB-</option>
@@ -1092,13 +1095,14 @@ return $contents;
           <option value="202705">AM-shaggy</option>
           <option value="237543">AM-HHF</option>
           <option value="424873">AM-CZ+HC</option>
+          <option value="494701">AM-SHORT</option>
   								</optgroup>
+
   				<optgroup label="HTA">
           <option value="257523">HT-4*4</option>
           <option value="264345">HT-kinky</option>
           <option value="237487">HT-HHF</option>
           <option value="256479">HT-150-</option>
-          <option value="273722">HT-SB</option>
           <option value="230192">HT-HHB</option>
           <option value="229982">HT-LOOSE</option>
           <option value="229932">HT-YAKI</option>
@@ -1106,7 +1110,6 @@ return $contents;
           <option value="227768">HT-SB</option>
           <option value="231347">HT-BSLF</option>
           <option value="270583">HT-MIX</option>
-          <option value="278737">HT-360LTScurly-</option>
           <option value="290465">HT-FLLF-</option>
           <option value="238942">HT-FTS-</option>
           <option value="238845">HT-Shaggy</option>
@@ -1120,22 +1123,15 @@ return $contents;
           <option value="377819">HT-TW013</option>
           <option value="377824">HT-TW015</option>
           <option value="424799">HT-CZ+HC-</option>
-
+          <option value="494700">HT-SHORT-</option>
+          <option value="505647">HT-27FW-</option>
   								</optgroup>
+
   				<optgroup label="UCB">
           <option value="259286">UCB-BSLF</option>
-          <option value="195411">UCB-THT</option>
-          <option value="192059">UCB-THMD</option>
-          <option value="220696">UCB-THC</option>
-          <option value="181199">UCB-THV</option>
-          <option value="354857">UCB-TH-BD</option>
-          <option value="195436">UCB-THE</option>
-          <option value="195404">UCB-THSL</option>
-          <option value="195424">UCB-TH2</option>
           <option value="278424">Deep</option>
           <option value="262801">UCB-VS</option>
           <option value="218140">UCB-LF</option>
-          <option value="288775">UCB-8tress</option>
           <option value="393112">UCB-BLF</option>
           <option value="393080">UCB-DLF</option>
           <option value="393042">UCB-SLF</option>
@@ -1145,7 +1141,7 @@ return $contents;
 
         <select id="ebaysellerid" name="ebaysellerid" style="width:150px;height:30px;">
         <option value="anothermart">anothermart</option>
-        <option value="tracy.hair">tracy.hair</option>
+        <option value="tracy_hair">tracy_hair</option>
         <option value="us.city-boutique">us.city-boutique</option>
         <option value="hair_trends">hair_trends</option>
         </select>
@@ -1313,8 +1309,8 @@ if($_COOKIE["password"] == $web_password){
 
     }else{
     $return .=  'Please upload excel file!';
-    return $return;
     }
+
   return $return;
 }
     echo html_return(cz($db_web,$web_password), $html_meun,$web_password);
@@ -1326,59 +1322,100 @@ if($_COOKIE["password"] == $web_password){
   }
   $html_meun = str_replace('"type_settings"','"type_settings" '.$html_active, $html_meun);
 
-  function settings($db_web){
+  function settings($db_web,$value_over_zero_process,$value_varations_image_process,$web_username,$web_password,$web_site,$vi_sellerid){
 
-  //  $db_web->query($creat_sql);
+    if($_POST["value_over_zero_process"] == "OFF" ){
 
-    if($_POST["over_zero_process"] == "OFF" ){
-      $bool_over_zero_process = "ON";
-      $sql_bool="update settings set over_zero_process='ON'" ;
+      $sql_delete = "DELETE FROM settings where NAME='value_over_zero_process'";
+      $sql_update = "insert into settings(NAME,VALUE) values('value_over_zero_process','ON')";
       try {
-          $db_web->query($sql_bool);
+          $db_web->query($sql_delete);
         } catch (Exception $e) {
-          echo $e->getMessage();
       }
-    } else if($_POST["over_zero_process"] == "ON") {
-      $bool_over_zero_process = "OFF";
-      $sql_bool="update settings set over_zero_process='OFF'" ;
+
       try {
-          $db_web->query($sql_bool);
+          $db_web->query($sql_update);
         } catch (Exception $e) {
-          echo $e->getMessage();
+          echo $e."<br/>".$sql_insert;
       }
+      $return .= "<script language='javascript'>document.location = '/index.php?action=settings'</script>";
+    } else if(!$value_over_zero_process
+      || $_POST["value_over_zero_process"] == "ON") {
+
+      $sql_delete = "DELETE FROM settings where NAME='value_over_zero_process'";
+      $sql_update = "insert into settings(NAME,VALUE) values('value_over_zero_process','OFF')";
+      try {
+          $db_web->query($sql_delete);
+        } catch (Exception $e) {
+      }
+
+      try {
+          $db_web->query($sql_update);
+        } catch (Exception $e) {
+          echo $e."<br/>".$sql_insert;
+      }
+      $return .= "<script language='javascript'>document.location = '/index.php?action=settings'</script>";
     }
 
-    $query="SELECT * FROM `settings`";//需要执行的sql语句
-    $res=$db_web->prepare($query);//准备查询语句
-    $res->execute();            //执行查询语句，并返回结果集
+    if($_POST["value_varations_image_process"] == "OFF" ){
 
-    while($result=$res->fetch(PDO::FETCH_ASSOC)){
-      $over_zero_process = $result["over_zero_process"];
-      $username = $result["username"];
-      $password = $result["password"];
-      $ibay_site = $result["ibay_site"];
-    }
+      $sql_delete = "DELETE FROM settings where NAME='value_varations_image_process'";
+      $sql_update = "insert into settings(NAME,VALUE) values('value_varations_image_process','ON')";
+      try {
+          $db_web->query($sql_delete);
+        } catch (Exception $e) {
+      }
 
-    if(!$over_zero_process){
-      $over_zero_process = "OFF";
+      try {
+          $db_web->query($sql_update);
+        } catch (Exception $e) {
+          echo $e."<br/>".$sql_insert;
+      }
+      $return .= "<script language='javascript'>document.location = '/index.php?action=settings'</script>";
+    } else if(!$value_varations_image_process
+      || $_POST["value_varations_image_process"] == "ON") {
+
+      $sql_delete = "DELETE FROM settings where NAME='value_varations_image_process'";
+      $sql_update = "insert into settings(NAME,VALUE) values('value_varations_image_process','OFF')";
+      try {
+          $db_web->query($sql_delete);
+        } catch (Exception $e) {
+      }
+
+      try {
+          $db_web->query($sql_update);
+        } catch (Exception $e) {
+          echo $e."<br/>".$sql_insert;
+      }
+      $return .= "<script language='javascript'>document.location = '/index.php?action=settings'</script>";
     }
 
     if($_POST["save"]){
 
-      try {
-        $db_web->query($del_sql);
-        $db_web->query($creat_sql);
-      } catch (Exception $e) {
-        $return =  $e->getMessage();
-      }
+      $sql_insert[0] = "insert into settings(NAME,VALUE) values('ibay_web_site','".$_POST["ibay_site"]."')";
+      $sql_delete[0] = "DELETE FROM settings where NAME='ibay_web_site'";
+      $sql_insert[1] = "insert into settings(NAME,VALUE) values('username','".$_POST["username"]."')";
+      $sql_delete[1] = "DELETE FROM settings where NAME='username'";
+      $sql_insert[2] = "insert into settings(NAME,VALUE) values('password','".$_POST["password"]."')";
+      $sql_delete[2] = "DELETE FROM settings where NAME='password'";
+      $sql_insert[3] = "insert into settings(NAME,VALUE) values('vi_sellerid','".$_POST["vi_sellerid"]."')";
+      $sql_delete[3] = "DELETE FROM settings where NAME='vi_sellerid'";
 
-      $sql_insert = "insert into settings(ibay_site,username,password,over_zero_process) values('".$_POST["ibay_site"]."','".$_POST["username"]."','".$_POST["password"]."','".$over_zero_process."')";
-      try {
-        $db_web->query($sql_insert);
+      for($i_sql_insert = 0; $i_sql_insert < count($sql_insert); $i_sql_insert++){
 
-      } catch (Exception $e) {
-        $return .=  $e->getMessage();
+        try {
+          $db_web->query($sql_delete[$i_sql_insert]);
+        } catch (Exception $e) {
+          $return .=  $e->getMessage()."<br/>";
+        }
+
+        try {
+          $db_web->query($sql_insert[$i_sql_insert]);
+        } catch (Exception $e) {
+          $return .=  $e->getMessage()."<br/>";
+        }
       }
+      $return .= "<script language='javascript'>document.location = '/index.php?action=settings'</script>";
 
     }
 
@@ -1388,37 +1425,60 @@ if($_COOKIE["password"] == $web_password){
                       <thead>
                         <tr>
                           <th>NAME</th>
+                          <th>VALUES</th>
                           <th>STATUS</th>
                         </tr>
                       </thead>
                       <tbody>
+                      <tr>
+                        <td><span>Varations image process</span><br><small class="md5"></small></td>
+                        <td>
+                          <input id="value_varations_image_process" name="value_varations_image_process" type="submit" class="btn-large waves-effect waves-light blue" value="'.$value_varations_image_process.'" >
+                          </td>
+                          <td>'.str_replace(array("\r\n", "\r", "\n"), '<br/>',shell_exec("ps -ef|grep varations_image")).'</td>
+                      </tr>
                         <tr>
-                          <td><span>over_zero_ing</span><br><small class="md5"></small></td>
+                          <td><span>Over Zero process</span><br><small class="md5"></small></td>
                           <td>
-                            <input id="over_zero_process" name="over_zero_process" type="submit" class="btn-large waves-effect waves-light blue" value="'.$over_zero_process.'" >
-                            </div>
+                            <input id="value_over_zero_process" name="value_over_zero_process" type="submit" class="btn-large waves-effect waves-light blue" value="'.$value_over_zero_process.'" >
                             </td>
+                            <td>'.str_replace(array("\r\n", "\r", "\n"), '<br/>',shell_exec("ps -ef|grep php")).'</td>
                         </tr>
                         <tr>
                           <td><span>username</span><br><small class="md5"></small></td>
                           <td>
-                            <input id="username" name="username" value="'.$username.'" type="text" style="width:150px;height:30px;">
-                            </div>
+                            <input id="username" name="username" value="'.$web_username.'" type="text" style="width:150px;height:30px;">
                             </td>
+                            <td></td>
                         </tr>
                         <tr>
                           <td><span>password</span><br><small class="md5"></small></td>
                           <td>
-                            <input id="password" name="password" value="'.$password.'" type="password" style="width:150px;height:30px;">
-                            </div>
+                            <input id="password" name="password" value="'.$web_password.'" type="password" style="width:150px;height:30px;">
                             </td>
+                            <td></td>
                         </tr>
                         <tr>
                           <td><span>ibay_site</span><br><small class="md5"></small></td>
                           <td>
-                            <input id="ibay_site" name="ibay_site" value="'.$ibay_site.'" type="text" style="width:150px;height:30px;">
-                            </div>
+                            <input id="ibay_site" name="ibay_site" value="'.$web_site.'" type="text" style="width:150px;height:30px;">
                             </td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                          <td><span>vi_sellerid</span><br><small class="md5"></small></td>
+                          <td>
+                            <select id="vi_sellerid" name="vi_sellerid" style="width:150px;height:30px;">
+                            <option value="anothermart">anothermart</option>
+                            <option value="tracy.hair">tracy.hair</option>
+                            <option value="us.city-boutique">us.city-boutique</option>
+                            <option value="hair_trends">hair_trends</option>
+                            </select>
+                            <script>
+                            document.getElementById(\'vi_sellerid\').value="'.$vi_sellerid.'";
+                            </script>
+                            </td>
+                            <td></td>
                         </tr>
                         </tbody>
                     </table>
@@ -1432,7 +1492,7 @@ if($_COOKIE["password"] == $web_password){
 
   }
 
-  echo html_return(settings($db_web), $html_meun,$web_password);
+  echo html_return(settings($db_web,$value_over_zero_process,$value_varations_image_process,$web_username,$web_password,$web_site,$vi_sellerid), $html_meun,$web_password);
 
 }else if($_GET["action"]=="pictures_explorer" && $_COOKIE["password"] == $web_password){
 

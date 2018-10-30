@@ -1,0 +1,1972 @@
+.container {
+	margin: 0 auto;
+	padding: 0 10px;
+	text-align: left;
+}
+.clear {
+	clear: both;
+}
+body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+}
+strong {
+	font-weight: bold;
+}
+em {
+	font-style: italic;
+}
+ul.basic {
+	list-style-type: disc;
+	margin-bottom: 10px;
+	margin-left: 15px;
+}
+ol.basic {
+	list-style-type: decimal;
+	margin-bottom: 10px;
+	margin-left: 15px;
+}
+/* header -------------------------------------------------------------------------------------------------- */
+#header {
+	background: #000 url("./header-sprite.png") top center no-repeat;
+	min-height: 47px;
+	margin: 0;
+	padding: 0;
+	text-align: right;
+}
+#header h1 {
+	float: left;
+	margin: 8px 0 0 10px;
+	padding: 0;
+	width: 182px;
+}
+#header h1 a {
+	background: url("./header-sprite.png") 0 -130px no-repeat;
+	display: block;
+	height: 31px;
+	overflow: hidden;
+	text-indent: -9999px;
+	width: 182px;
+	text-align: left;
+}
+/* account selector ---------------------------------------------------------------------------------------- */
+form {
+	margin: 0;
+	padding: 0;
+}
+#account {
+	/* float: right; */
+	font-family: Arial, Verdana, Helvetica, sans-serif;
+	margin: 0;
+	padding: 4px 10px 7px 0;
+	text-align: right;
+	/* width: 600px; */
+	white-space: nowrap;
+}
+#account ul {
+	border-right: none;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+#account ul#accountMessage li {
+	font-size: 12px;
+	color: #FFF;
+	margin: 0;
+	padding: 0;
+}
+#account ul#accountMessage li strong {
+	color: #FFF;
+	font-weight: bold;
+}
+#account ul#accountMessage li em {
+	margin: 0 5px;
+	padding: 0;
+}
+#account ul#accountMessage li a:link,
+#account ul#accountMessage li a:visited {
+	color: #FFF;
+	font-size: 12px;
+	text-decoration: underline;
+}
+#account ul#accountMessage li a:hover {
+	text-decoration: none;
+}
+#account ul#accountSelector {
+    float: right;
+}
+#account ul#accountSelector li {
+	margin: 0;
+	padding: 5px 0 0 0;
+	float: left;
+}
+#account label {
+	color: #E1E1E1;
+	font-size: 12px;
+	margin: 0;
+	padding: 0 0 0 10px;
+	vertical-align: middle;
+}
+#account .accountPID {
+	background-color: #FFF;
+	border: 1px solid #000;
+	font-size: 12px;
+	line-height: 16px;
+	vertical-align: middle;
+	width: 55px;
+}
+#account .submitPID {
+	height: 16px;
+	vertical-align: middle;
+	width: 16px;
+}
+#account .accountSelect {
+	background-color: #FFF;
+	border: 1px solid #000;
+	font-size: 12px;
+	line-height: 16px;
+	margin: 0 0 1px 0;
+	padding: 1px;
+	vertical-align: middle;
+}
+.clearfix:after {
+  content: ".";
+  clear: both;
+  height: 0;
+  visibility: hidden;
+  display: block;
+}
+.clearfix {display:inline-block;}
+.clearfix {display:block;}
+/* secondary-nav ------------------------------------------------------------------------------------------- */
+#secondary-nav {
+	background: url("./secondary-nav-bg.jpg") bottom left repeat-x;
+	clear: both;
+	font-family: Arial, Helvetica, Verdana, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	line-height: 1.5em;
+	margin: 0;
+	padding: 0px 0 0 0;
+	width: 100%;
+}
+#secondary-nav ul {
+	list-style: none;
+	margin: 0;
+	padding: 10px 10px 0 10px;
+}
+#secondary-nav li {
+	display: inline;
+	margin: 0;
+	padding: 0;
+}
+#secondary-nav a {
+	background: url("./secondary-nav-left.gif") top left no-repeat;
+	float: left;
+	margin: 0;
+	padding: 0 0 0 4px;
+	text-decoration: none;
+}
+#secondary-nav a span {
+	background: url("./secondary-nav-right.gif") top right no-repeat;
+	color: #333;
+	display: block;
+	float: left;
+	margin: 0;
+	padding: 2px 15px 1px 11px;
+}
+/* Commented Backslash Hack hides rule from IE5-Mac \*/
+#secondary-nav a span {
+	float: none;
+}
+/* End IE5-Mac hack */
+#secondary-nav a:hover span {
+	color: #333;
+}
+#secondary-nav a:hover,
+#secondary-nav a.active {
+	background-position: 0% -42px;
+}
+#secondary-nav a:hover span, 
+#secondary-nav a.active span {
+	background-position: 100% -42px;
+}
+/* tertiary-nav -------------------------------------------------------------------------------------------- */
+#tertiary-nav {
+	border-bottom: 1px solid #CCC;
+	font-family: Arial, Verdana, Helvetica, sans-serif;
+	margin: 0;
+	padding: 0;
+}
+#tertiary-nav ul {
+	font-family: Arial, Verdana, Helvetica, sans-serif;
+	font-size: 12px;
+	list-style: none;
+	margin: 0;
+	padding: 3px 0 4px 20px;
+}
+#tertiary-nav ul li {
+	display: inline;
+	font-family: Arial, Verdana, Helvetica, sans-serif;
+	line-height: 1.5em;
+	margin: 0;
+	padding: 0;
+}
+#tertiary-nav ul li a:link,
+#tertiary-nav ul li a:visited {
+	background: url("./tertiary-nav-divider.gif") top left no-repeat;
+	color: #666;
+	font-family: Arial, Verdana, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: normal;
+	margin: 0;
+	padding: 0 6px 0 6px;
+	text-decoration: none;
+}
+#tertiary-nav ul li a:hover {
+	color: #333;
+	font-weight: normal;
+	text-decoration: underline;
+}
+#tertiary-nav ul li a.active:link,
+#tertiary-nav ul li a.active:visited {
+	color: #333;
+	font-weight: bold;
+}
+#tertiary-nav ul li a.active:hover {
+	font-weight: bold;
+}
+#tertiary-nav ul li.first a:link, 
+#tertiary-nav ul li.first a:visited {
+	background-image: none;
+	padding-left: 0;
+}
+/* content ------------------------------------------------------------------------------------------------- */
+h2.channelSection {
+	color: #EC7600;
+	float: left;
+	font-family: Arial, Helvetica, Verdana, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	margin: 0 0 0 10px;
+	padding: 2px 0;
+	position: absolute;
+}
+#content h2 {
+	clear: both;
+	color: #0A458B;
+	font-family: Arial, Helvetica, Verdana, sans-serif;
+	font-size: 15px;
+	font-weight: bold;
+	padding: 0 0 10px 0;
+}
+#content {
+	margin: 0;
+	padding: 0;
+}
+#content h2 {
+	color: #0A458B; 
+	float: none;
+	font-family: Arial, Verdana, Helvetica, sans-serif;
+	font-size: 15px;
+	font-weight: bold;
+	padding: 0;
+}
+#content .copy {
+	font-size: 12px;
+}
+#content .copy p {
+	color: #000;
+	font-size: 12px;
+	line-height: 1.25em;
+	margin: 0 0 10px 0;
+}
+.revenueCostLink {
+	color: #333;
+	text-decoration: none;
+}
+.revenueCostInfo, .revenueFeature, .filterClose {
+	display: none;
+}
+.collapsibleSection, .expandedMarker {
+	display: none;
+}
+/* dashboards ---------------------------------------------------------------------------------------------- */
+.dashboards fieldset {
+	margin-bottom: 0;
+	padding: 5px;
+}
+.dashboardWidgets {
+	width: 300px;
+}
+.dashboards .accountDetails {
+	background-color: #FEF6E0;
+	border: 1px solid #EFE1B9;
+	line-height: 1.5em;
+	width: 100%;
+}
+/* calendar ------------------------------------------------------------------------------------------------ */
+html .calendar table {
+	width: 0;
+}
+.calendar .calendarHeader {
+	background-color: #0F59B3;
+	color: #FFF;
+	font-family: Arial, Helvetica, Verdana, Sans-serif;
+	font-size: 12px;
+	text-align: center;
+}
+/* Widgets ------------------------------------------------------------------------------------------------- */
+/* set the image to use and establish the lower-right position */ 
+.widget, .widgetBody, .widgetHead, .widgetHead h5 {
+    background: transparent url("./widget-bg.gif") no-repeat bottom right; 
+} 
+.widget { 
+    width: 100% !important; /* intended total box width - padding-right(next) */
+    /* width: 790px;  IE Win = width - padding */
+    padding-right: 0px; /* the gap on the right edge of the image (not content padding) */
+    margin: 0 0 20px 0; /* use to position the box */ 
+} 
+/* set the top-right image */ 
+.widgetHead { 
+    background-position: top right;
+	margin-right: 0px; /* pull the right image over on top of border */
+    padding-right: 10px; /* right-image-gap + right-inside padding */ 
+} 
+/* set the top-left image */ 
+.widgetHead h5 { 
+    background-position: top left; 
+    margin: 0; /* reset main site styles*/ 
+    border: 0; /* ditto */ 
+    padding: 5px 0 5px 10px; /* padding-left = image gap + interior padding ... no padding-right */ 
+    height: auto !important; height: 1%; /* IE Holly Hack */
+	font-family: Arial, Verdana, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color: #000;
+}
+a.widgetTopRight:link, a.widgetTopRight:visited {
+	color: #0A458B;
+	float: right;
+	font-family: Arial, Verdana, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: normal;
+	margin: 0;
+	padding: 5px;
+	text-decoration: underline;
+}
+a.widgetTopRight:hover {
+	color: #1783D2;
+	text-decoration: none;
+}
+/* set the lower-left corner image */ 
+.widgetBody { 
+    background-position: bottom left; 
+    margin-right: 10px; /* interior-padding right */ 
+    padding: 7px 0 10px 11px; /* mirror .widget_head right/left */ 
+	font-family: Arial, Verdana, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #000;
+	line-height: 1.5em;
+}
+.widgetContiner {
+	margin: 0 auto;
+}
+html table.widgetContainer tr td {
+	padding: 10px 10px 0 10px;
+	vertical-align: top;
+}
+/* buttons ------------------------------------------------------------------------------------------------- */
+ul.buttons {
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+}
+ul.buttons li {
+	display: inline;
+	float: left;
+	padding: 0 5px;
+}
+ul.buttons li.left{
+	display: block;
+	float: left;
+	padding: 0 5px 0 0;
+}
+ul.buttons li.right{
+	display: block;
+	float: right;
+	padding: 0 0 0 5px;
+}
+ul.buttons li a {
+	margin: 0;
+}
+ul.buttons li.left a, ul.buttons li.right a {
+	margin: 0 0 10px 0;
+}
+ul.buttons li.left input, ul.buttons li.right input {
+	margin: 0 0 10px 0;
+}
+/* New Buttons and Input Styles ----------------------------------------------------------------- */
+a.actionButton {
+	border-width: 1px;
+	border-style: solid;
+	font-family: Arial, Helvetica, Verdana, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	display: block;
+	line-height: 14px;
+	overflow: hidden;
+	text-decoration: none;
+}
+a.actionButton img {
+	border: none;
+}
+/* Links primary -------------------------------------------------------------------------------- */
+a.primary,
+a.secondary,
+a.neutral,
+a.formTaskButton {
+	background: url("./buttons/primary-button-bg.jpg") top left no-repeat;
+	border: 1px solid #85C4F0;
+	color: #333;
+	padding: 3px 5px;
+}
+a.primaryCheck,
+a.secondaryCheck,
+a.orangeLinkCheck {
+	background: url("./buttons/primary-button-check-bg.jpg") top left no-repeat;
+	padding: 3px 5px 3px 23px;
+}
+a.primaryPlus,
+a.secondaryPlus,
+a.orangeLinkPlus {
+	background: url("./buttons/primary-button-plus-bg.jpg") top left no-repeat;
+	padding: 3px 5px 3px 23px;
+}
+a.primaryForwardArrow,
+a.secondaryForwardArrow {
+	background: url("./buttons/primary-button-forward-arrow-bg.jpg") top left no-repeat;
+	padding: 3px 5px 3px 23px;
+}
+a.primaryBackArrow,
+a.secondaryBackArrow,
+a.greyLinkBackArrow {
+	background: url("./buttons/primary-button-back-arrow-bg.jpg") top left no-repeat;
+	padding: 3px 5px 3px 23px;
+}
+a.primaryMinus,
+a.secondaryMinus,
+a.greyLinkMinus {
+	background: #F58405 url("./buttons/primary-button-minus-bg.jpg") top left no-repeat;
+	padding: 3px 5px 3px 23px;
+}
+a.blueButton,
+a.neutralButton {
+	background: url("./buttons/primary-button-bg.jpg") top left no-repeat;
+	border: 1px solid #85C4F0;
+	color: #333;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 3px 5px;
+	text-decoration: none;
+}
+a.primary:hover, 
+a.primaryCheck:hover, 
+a.primaryPlus:hover,
+a.primaryForwardArrow:hover,
+a.primaryBackArrow:hover,
+a.primaryMinus:hover, 
+a.secondary:hover, 
+a.secondaryCheck:hover, 
+a.secondaryPlus:hover,
+a.secondaryForwardArrow:hover,
+a.secondaryBackArrow:hover,
+a.secondaryMinus:hover,
+a.neutral:hover,
+a.formTaskButton:hover,
+a.orangeLinkCheck:hover,
+a.orangeLinkPlus:hover,
+a.greyLinkBackArrow:hover,
+a.greyLinkMinus:hover,
+a.blueButton:hover,
+a.neutralButton:hover  {
+	background-position: 0 -39px;
+	border: 1px solid #99D8FF;
+}
+/* Links disabled -------------------------------------------------------------------------------- */
+a.disabled {
+	background: url("./buttons/disabled-button-bg.jpg") top left no-repeat;
+	border: 1px solid #CCC;
+	color: #AAA;
+	padding: 3px 5px;
+}
+a.disabledCheck {
+	background: url("./buttons/disabled-button-check-bg.jpg") top left no-repeat;
+	padding: 3px 5px 3px 23px;
+}
+a.disabledPlus {
+	background: url("./buttons/disabled-button-plus-bg.jpg") top left no-repeat;
+	padding: 3px 5px 3px 23px;
+}
+a.disabledMinus {
+	background: url("./buttons/disabled-button-minus-bg.jpg") top left no-repeat;
+	padding: 3px 5px 3px 23px;
+}
+a.disabledBackArrow {
+	background: url("./buttons/disabled-button-back-arrow-bg.jpg") top left no-repeat;
+	padding: 3px 5px 3px 23px;
+}
+a.disabledForwardArrow {
+	background: url("./buttons/disabled-button-forward-arrow-bg.jpg") top left no-repeat;
+	padding: 3px 5px 3px 23px;
+}
+a.disabled:hover, 
+a.disabledCheck:hover, 
+a.disabledPlus:hover, 
+a.disabledMinus:hover, 
+a.disabledBackArrow:hover,
+a.disabledForwardArrow:hover {
+	background-position: 0 -39px;
+	border: 1px solid #E0E0E0;
+}
+/* Links import and export ---------------------------------------------------------------------- */
+a.importButton {
+	background: url("./buttons/lt-blue-up.jpg") top left no-repeat;
+	border: 1px solid #85C4F0;
+	color: #333;
+	padding: 3px 5px 3px 24px;
+}
+a.exportButton {
+	background: url("./buttons/lt-blue-down.jpg") top left no-repeat;
+	border: 1px solid #85C4F0;
+	color: #333;
+	padding: 3px 5px 3px 24px;
+}
+a.importButton:hover, 
+a.exportButton:hover {
+	background-position: 0 -39px;
+	border: 1px solid #99D8FF;
+}
+/* Links form tasks ----------------------------------------------------------------------------- */
+a.formTaskButton img,
+a.blueButton img {
+	border: none;
+	padding: 0 5px 0 0;
+}
+a.formTaskButton .rtBlueArrow,
+a.blueButton .rtBlueArrow {
+	background: url("./buttons/icon-blue-rt-arrow.gif") top right no-repeat;
+	padding-right: 20px;
+}
+a.formTaskButton .lftBlueArrow,
+a.blueButton .lftBlueArrow {
+	background: url("./buttons/icon-blue-lft-arrow.gif") top left no-repeat;
+	padding-left: 20px;
+}
+/* Input Buttons -------------------------------------------------------------------------------- */
+input.actionButton {
+	border-collapse: collapse;
+	border-width: 1px;
+	border-style: solid;
+	cursor: pointer;
+	font-family: Arial, Helvetica, Verdana, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	overflow: visible;
+	padding: 0;
+	width: 0;
+}
+/* Input primary -------------------------------------------------------------------------------- */
+input.primary,
+input.secondary,
+input.neutral {
+	background: url("./buttons/primary-button-bg.jpg") top left no-repeat;
+	border: 1px solid #85C4F0;
+	color: #333;
+	padding: 1px 2px;
+}
+input.primaryCheck,
+input.secondaryCheck {
+	background: url("./buttons/primary-button-check-bg.jpg") top left no-repeat;
+	padding: 1px 2px 1px 20px;
+}
+input.primaryPlus,
+input.secondaryPlus {
+	background: url("./buttons/primary-button-plus-bg.jpg") top left no-repeat;
+	padding: 1px 2px 1px 20px;
+}
+input.primaryForwardArrow,
+input.secondaryForwardArrow {
+	background: url("./buttons/primary-button-forward-arrow-bg.jpg") top left no-repeat;
+	padding: 1px 2px 1px 20px;
+}
+input.primaryBackArrow,
+input.secondaryBackArrow {
+	background: url("./buttons/primary-button-back-arrow-bg.jpg") top left no-repeat;
+	padding: 1px 2px 1px 20px;
+}
+input.primaryMinus,
+input.secondaryMinus {
+	background: url("./buttons/primary-button-minus-bg.jpg") top left no-repeat;
+	padding: 1px 2px 1px 20px;
+}
+
+input.primary:hover, 
+input.primaryCheck:hover, 
+input.primaryPlus:hover,
+input.primaryForwardArrow:hover,
+input.primaryBackArrow:hover,
+input.primaryMinus:hover,
+input.secondary:hover, 
+input.secondaryCheck:hover, 
+input.secondaryPlus:hover, 
+input.secondaryForwardArrow:hover,
+input.secondaryBackArrow:hover,
+input.secondaryMinus:hover,
+input.neutral {
+	background-position: 0 -39px;
+	border: 1px solid #85C4F0;
+}
+/* Input disabled ------------------------------------------------------------------------------- */
+input.disabled {
+	background: url("./buttons/disabled-button-bg.jpg") top left no-repeat;
+	border: 1px solid #CCC;
+	color: #AAA;
+	padding: 1px 2px;
+}
+input.disabledCheck {
+	background: url("./buttons/disabled-button-check-bg.jpg") top left no-repeat;
+	padding: 1px 2px 1px 20px;
+}
+input.disabledPlus {
+	background: url("./buttons/disabled-button-plus-bg.jpg") top left no-repeat;
+	padding: 1px 2px 1px 20px;
+}
+input.disabledMinus {
+	background: url("./buttons/disabled-button-minus-bg.jpg") top left no-repeat;
+	padding: 1px 2px 1px 20px;
+}
+input.disabledBackArrow {
+	background: url("./buttons/disabled-button-back-arrow-bg.jpg") top left no-repeat;
+	padding: 1px 2px 1px 20px;
+}
+input.disabledForwardArrow {
+	background: url("./buttons/disabled-button-forward-arrow-bg.jpg") top left no-repeat;
+	padding: 1px 2px 1px 20px;
+}
+input.disabled:hover, 
+input.disabledCheck:hover, 
+input.disabledPlus:hover, 
+input.disabledMinus:hover, 
+input.disabledBackArrow:hover,
+input.disabledForwardArrow:hover {
+	background-position: 0 -39px;
+	border: 1px solid #E0E0E0;
+}
+/* All Inputs ----------------------------------------------------------------------------------- */
+input.actionButton[class] {
+	width: auto;
+}
+/* Old link buttons ----------------------------------------------------------------------------- */
+.silverButton {
+	background: url("./buttons/silver-button-right.gif") center right no-repeat;
+	float: left;
+	margin: 0;
+	padding: 0 6px 0 0;
+}
+.actionBar {
+	margin: 0;
+	width: 100%;
+}
+.grid thead .gridButtonBar .silverButton a,
+.silverButton a {
+	display: block;
+	background: url("./buttons/silver-button-left.gif") center left no-repeat;
+	float: left;
+	padding: 5px 2px 5px 7px;
+	text-decoration: none;
+	font-weight: bold;
+	color: #333;
+}
+.grid thead .silverButton a, 
+.silverButton a {
+	display: block;
+	background: url("./buttons/silver-button-left.gif") center left no-repeat;
+	float: left;
+	padding: 5px 2px 5px 7px;
+	text-decoration: none;
+	font-weight: bold;
+	color: #333;
+}
+.grid thead .silverButton span, 
+.silverButton span {
+	border-left: 1px solid #333;
+	display: block;
+	float: left;
+	margin: 4px 0 0 3px;
+	padding: 1px 0;
+}
+.grid thead .silverButton span img, 
+.silverButton span img {
+	cursor: help;
+	cursor: pointer;
+}
+.grid thead .silverButton a:hover, 
+.silverButton a:hover {
+	color: #007AD5;
+}
+.silverButton a img {
+	border: none;
+	text-decoration: none;
+	vertical-align: middle;
+}
+.silverButton a img.left {
+	padding: 0 5px 0 0;
+}
+.silverButton a img.right {
+	padding: 0 0 0 5px;
+}
+#dropmenudiv {
+	border-top: 1px solid #0A468D;
+	font-family: Arial, Helvetica, Verdana, sans-serif;
+	font-size: 12px; 
+	line-height: 15px;
+	position: absolute;
+	z-index: 100;
+}
+#dropmenudiv a {
+	background-color: #fff;
+	border: 1px solid #0A468D;
+	border-top-width: 0;
+	color: #333;
+	display: block;
+	padding: 1px 3px;
+	text-decoration: none;
+}
+* html #dropmenudiv a {
+	width: 100%;
+}
+#dropmenudiv a:hover{ /*hover background color*/
+	background-color: #FCF5DD;
+}
+/* New Button Styles ---------------------------------------------------------------------------- */
+.formStyles .orangeButton {
+	background: url("./buttons/primary-button-bg.jpg") top left no-repeat;
+	border: 1px solid #85C4F0;
+	color: #333;
+	cursor: pointer;
+	font-size: 12px;
+	font-weight: bold;
+	margin: 0 3px;
+	overflow: visible;
+	padding: 3px 5px;
+	width: 0;
+}
+.formStyles .orangeButtonCheck {
+	background: url("./buttons/primary-button-check-bg.jpg") top left no-repeat;
+	border: 1px solid #85C4F0;
+	color: #333;
+	cursor: pointer;
+	font-size: 12px;
+	font-weight: bold;
+	margin: 0 3px;
+	overflow: visible;
+	padding: 3px 5px 3px 23px;
+	width: 0;
+}
+.formStyles input.orangeButton:hover, 
+.formStyles input.orangeButtonCheck:hover {
+	background-position: 0 -39px;
+	border: 1px solid #99D8FF;
+}
+.formStyles .greyButton {
+	background: url("./buttons/primary-button-bg.jpg") top left no-repeat;
+	border: 1px solid #85C4F0;
+	color: #333;
+	cursor: pointer;
+	font-size: 12px;
+	font-weight: bold;
+	margin: 0 3px;
+	overflow: visible;
+	padding: 3px 5px;
+	width: 0;
+}
+.formStyles .greyButtonMinus {
+	background: url("./buttons/primary-button-minus-bg.jpg") top left no-repeat;
+	border: 1px solid #85C4F0;
+	color: #333;
+	cursor: pointer;
+	font-size: 12px;
+	font-weight: bold;
+	margin: 0 3px;
+	overflow: visible;
+	padding: 3px 5px 3px 23px;
+	width: 0;
+}
+.formStyles .greyButtonBackarrow {
+	background: url("./buttons/primary-button-back-arrow-bg.jpg") top left no-repeat;
+	border: 1px solid #85C4F0;
+	color: #333;
+	cursor: pointer;
+	font-size: 12px;
+	font-weight: bold;
+	margin: 0 3px;
+	overflow: visible;
+	padding: 3px 5px 3px 23px;
+	width: 0;
+}
+.formStyles input.greyButton:hover, 
+.formStyles input.greyButtonMinus:hover, 
+.formStyles input.greyButtonBackarrow:hover {
+	background-position: 0 -39px;
+	border: 1px solid #99D8FF;
+}
+.formStyles input.orangeButton[class],
+.formStyles input.orangeButtonCheck[class],
+.formStyles input.greyButton[class],
+.formStyles input.greyButtonMinus[class],
+.formStyles input.greyButtonBackarrow[class] {
+	width: auto;
+}
+/* form ---------------------------------------------------------------------------------------------------- */
+.formStyles	{
+	font-family: Arial, Helvetica, Verdana, sans-serif;
+	font-size: 12px;
+}
+fieldset {
+	background: #EFEFEF url("./form-fieldset-bg.jpg") top left repeat-x;
+	border: 1px solid #DADFE0;
+	margin: 0 0 20px 0;
+	padding: 10px 30px;
+}
+fieldset ol, fieldset ul {
+	font-size: 12px;
+}
+.formStyles table {
+	width: 100%;
+}
+.formStyles table td {
+	padding: 5px;
+	vertical-align: top;
+	font-size: 12px;	
+}
+.formStyles table th {
+	padding: 5px;
+	vertical-align: top;
+	font-size: 12px;	
+	font-weight: bold;	
+}
+.formStyles p {
+	clear: both;
+	font-size: 12px;
+	padding: 5px 0;
+}
+p.form-section {
+	background-color: #DADFE0;
+	color: #333;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 5px 10px;
+	margin: 0;
+}
+.formStyles label {
+	color: #333;
+	display: block;
+	float: left;
+	font-size: 12px;
+	font-weight: normal;
+	margin: 5px 15px 0 0;
+	padding-left: 15px;
+	text-align: left;
+}
+.formStyles label.required {
+	background: url("./required-star.gif") left top no-repeat;
+	padding-left: 15px;
+}
+.formStyles label.recommended {
+	background: url("./recommended-star.gif") left top no-repeat;
+	padding-left: 15px;
+}
+.formStyles label.fieldError {
+	background: url("./error-star.gif") left top no-repeat;
+	padding-left: 15px;
+}
+.formStyles .multipleFields {
+	float: left;
+	margin-right: 20px;
+}
+.formStyles label.stacked {
+	float: none;
+	text-align: left;
+	padding-left: 0;
+}
+.formStyles input[type=text],
+.formStyles input[type=password],
+.formStyles textarea {
+	background: #FFF url("./contact-input-bg.jpg") top left repeat-x;
+	border: 1px solid #7F9DB9;
+	font-size: 12px;
+	padding: 2px;
+	font-weight: normal;
+}
+.formStyles select {
+	background: #FFF url("./contact-input-bg.jpg") top left repeat-x;
+	border: 1px solid #7F9DB9;
+	font-size: 12px;
+	padding: 1px;
+	font-weight: normal;
+}
+input[type=radio],
+input[type=checkbox] {
+	background: none;
+	border: none;
+}
+.formStyles table .error input,
+.formStyles table .error textarea,
+.formStyles table .error select {
+	background-color: #FAEBEB;
+	background-image: none;
+	border: 1px solid #CD0000;
+}
+.formStyles table .focus input,
+
+.formStyles table .focus textarea,
+.formStyles table .focus select {
+	background-color: #FFC;
+	background-image: none;
+	border: 1px solid #333;
+}
+.formStyles table .validationSummary {
+	background: url("./error-icon.png") left 2px no-repeat;
+	color: #CD0000;
+	font-size: 12px;
+	font-weight: bold;
+	line-height: 1.75em;
+	padding: 3px 0 3px 20px;
+}
+.formStyles table .validationError {
+	background: url("./error-icon.png") left 2px no-repeat;
+	color: #CD0000;
+	font-size: 12px;
+	font-weight: bold;
+	line-height: 1.75em;
+	padding: 3px 0 3px 20px;
+}
+.formStyles table .errorMessage {
+	background: url("./error-icon.png") left 2px no-repeat;
+	color: #CD0000;
+	display: block;
+	font-size: 12px;
+	font-weight: bold;
+	/* margin-left: 30px; */
+	padding: 3px 0 3px 20px;
+	/* position: absolute; */
+}
+.formDivider {
+	border-bottom: 1px solid #DADFE0;
+	margin-bottom: 10px;
+	padding-top: 10px;
+}
+.formStyles #submit, 
+.formStyles #reset	{
+	background: none;
+	width: auto;
+}
+.tooltip {
+	background-color: #EAF5FA;
+	border: 1px solid #CAEAF9;
+	color: #333;
+	font-size: 12px;
+	line-height: 1.25em;
+	padding: 0;
+	width: 25%;
+}
+.tooltip p {
+	margin: 0;
+	padding: 5px;
+}
+.tooltip .tooltip-title {
+	font-weight: bold;
+	position: relative;
+	text-decoration: underline;
+}
+.tooltip .tooltip-title .pin {
+	background: url("./icon-pin.gif") top left no-repeat;
+	display: block;
+	float: right;
+	height: 16px;
+	overflow: hidden;
+	top: 3px;
+	right: 5px;
+	text-indent: -9999px;
+	width: 16px;
+}
+.tooltip .tooltip-title .pinned {
+	background: url("./icon-unpin.gif") top left no-repeat;	
+}
+.tooltip .tooltip-title .unpinned {
+	background: url("./icon-pin.gif") top left no-repeat;
+}
+.tooltip .tooltip-body {
+	clear: both;
+}
+.tooltip2 {
+	background-color: #fff;
+	border: 1px solid #FA862F;
+	color: #333;
+	font-size: 12px;
+	line-height: 1.25em;
+	padding: 0;
+	width: 25%;
+}
+.numberedCircle {
+	background: url("./numbered-circle-bg.gif") top left no-repeat; 
+	color: #fff; 
+	display: block;
+	float: left;
+	font-size: 15px;
+	font-weight: bold;
+	height: 22px; 
+	margin-right: 10px;
+	padding-top: 2px; 
+	text-align:center; 
+	width: 22px;
+}
+/* ruledTable ---------------------------------------------------------------------------------------------- */
+.ruledTable td {
+	border-bottom: 1px solid #999;
+}	
+/* Wizard and Guide ---------------------------------------------------------------------------------------- */
+.wizard {
+	background-color: #D1D7D8;
+	border: 5px solid #D1D7D8;
+	margin: 0;
+}
+.wizardToolbar {
+	background-color: #D1D7D8;
+	padding: 0;
+}
+.wizard ul.buttons li.left a, .wizard ul.buttons li.right a {
+	margin: 0;
+}
+.wizard ul.buttons li.left input, .wizard ul.buttons li.right input {
+	margin: 0;
+}
+.wizard .buttons {
+	margin: 0;
+	padding: 0;
+}
+.wizardProgress {
+	background-color: #FAFAFA;
+	border-top: 5px solid #D1D7D8;
+	border-bottom: 2px solid #D1D7D8;
+	padding: 7px 10px 0 0;
+}
+.wizardProgress ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+.wizardProgress ul li {
+	color: #999;
+	float: left;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 0 10px 7px 10px;
+	white-space: nowrap;
+}
+.wizardProgress ul li a {
+	display: block;
+}
+.wizardProgress ul li a:link, .wizardProgress ul li a:visited {
+	color: #555;
+	text-decoration: underline;
+}
+.wizardProgress ul li a:hover {
+	color: #000;
+	text-decoration: underline;
+}
+.wizardProgress ul li.active {
+	background: url("./wizard-progress-arrow.jpg") bottom center no-repeat;
+	color: #F56C06;
+	padding-bottom: 7px;
+}
+.wizardBody {
+	background-color: #FAFAFA;
+	border-bottom: 5px solid #D1D7D8;
+	font-size: 12px;
+	padding: 10px;
+}
+.wizardBody h3 {
+	border-bottom: 1px dotted #D1D7D8;
+	color: #F56C06;
+	font-size: 15px;
+	font-weight: bold;
+	margin-bottom: 10px;
+	padding-bottom: 2px;
+}
+/* Wizard and Guide Links ---------------------------------------------------------------------------------- */
+a.ok {
+	background: url("./check-icon.png") left top no-repeat;
+	padding-left: 19px;
+}
+a.error {
+	background: url("./error-icon.png") left top no-repeat;
+	padding-left: 19px;
+}
+a.attention {
+	background: url("./attention-icon.png") left top no-repeat;
+	padding-left: 19px;
+}
+/* Grid ---------------------------------------------------------------------------------------------------- */
+.grid {
+	border: 1px solid #DADFE0;
+	margin: 0;
+	width: 100%;
+}
+.gridButtonBar {
+	list-style-type: none;
+}
+.gridButtonBar li {
+	display: inline;
+	float: left;
+	padding: 0 2px;
+	position: static;
+}
+.grid thead, .grid thead tr, .grid thead tr td {
+	background: #C8C8C8 url("./grid/grid-button-bar-bg.jpg") top left repeat-x;
+	border-bottom: 1px solid #DADFE0;
+	font-size: 12px;
+	font-weight: normal;
+	height: 25px;
+	padding: 0 5px;
+	vertical-align: middle;
+}
+body table .cellRight {
+	text-align: right;
+}
+.grid tbody th {
+	background: #F7F7F7 url("./grid/grid-column-headers-bg.jpg") bottom left repeat-x;
+	border-right: 1px solid #CCC;
+	border-bottom: 1px solid #939797;
+	border-left: 1px solid #CCC;
+	color: #333;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 5px 6px;
+	text-align: center;
+}
+.grid tbody .gridHeaderSpanTop {
+	background-color: #F7F7F7;
+	background-image: none;
+	border-bottom-color: #CCC;
+}
+.grid tbody .gridHeaderSpanBottom th {
+	background: #F7F7F7 url("./grid/grid-column-headers-bg.jpg") bottom left repeat-x;
+}
+.grid tbody .rowHighlight {
+	background-color: #D8E7FC;
+}
+.grid .select {
+	width: 40px;
+	text-align: center;
+}
+.grid tbody th a {
+	color: #333;
+	text-decoration: none;
+}
+.grid tbody th a img {
+	border: 0;
+	height: 9px;
+	width: 14px;
+}
+.grid tbody th a:hover {
+	text-decoration: underline;
+}
+.grid tbody th.sort {
+	background: #D8E7FC url("./grid/grid-column-headers-selected-bg.jpg") top left repeat-x;
+	white-space: nowrap;
+}
+.grid tbody td {
+	border: 1px solid #DADFE0;
+	color: #333;
+	font-size: 12px;
+	font-weight: normal;
+	padding: 3px 5px;
+	vertical-align: middle;
+}
+/* required by IE 7 to show mouseover highlights on view pages */
+.grid tbody .rowHighlight td {
+	border: 1px solid #DADFE0;
+	color: #333;
+	font-size: 12px;
+	font-weight: normal;
+	padding: 3px 5px;
+	vertical-align: middle;
+	background-color: #D8E7FC;
+}
+.grid tbody td .inactive {
+	background: url("./grid/icon-inactive.gif") left 2px no-repeat;
+	padding-left: 13px;
+}
+.grid tbody td .active {
+	background: url("./grid/icon-active.gif") left 2px no-repeat;
+	padding-left: 13px;
+}
+.grid tbody td .error {
+	background: url("./grid/icon-error.gif") left 2px no-repeat;
+	padding-left: 13px;
+}
+.grid tbody td a {
+	color: #0A468D;
+	font-size: 12px;
+	font-weight: normal;
+	text-decoration: underline;
+}
+.grid tbody td a:hover {
+	color: #F60;
+}
+.grid tbody .parent td {
+	background-color: #F5F5F5;
+}
+.grid tbody .parent.rowHighlight td {
+	background-color: #D8E7FC;
+}
+.grid tfoot, .grid tfoot tr, .grid tfoot tr td {
+	background: url("./grid/grid-button-bar-bg.jpg") top left repeat-x;
+	border-top: 1px solid #DADFE0;
+	font-size: 12px;
+	font-weight: normal;
+	height: 25px;
+	padding: 0 5px;
+	text-align: right;
+	vertical-align: middle;
+}
+.grid tfoot a img {
+	border: 0;
+}
+.grid tfoot input {
+	border: 1px solid #AAA;
+	width: 30px;
+}
+.grid tfoot input, .grid tfoot select {
+	border: 1px solid #AAA;
+}
+/* Icons -------------------------------------------------------------------------------------- */
+.icon {
+	display: block;
+	float: left;
+	height: 16px;
+	margin: 1px 3px;
+	overflow: hidden;
+	text-indent: -9999px;
+	width: 16px;
+}
+.activate {
+	background: url("./grid/icon-activate.gif") top left no-repeat;
+}
+.deactivate {
+	background: url("./grid/icon-deactivate.gif") top left no-repeat;
+}
+.repair {
+	background: url("./grid/icon-wrench.gif") top left no-repeat;
+}
+.download {
+	background: url("./grid/icon-download.gif") top left no-repeat;
+}
+.copyAction {
+	background: url("./buttons/icon-copy.gif") top left no-repeat;
+}
+.deleteAction {
+	background: url("./buttons/icon-delete.gif") top left no-repeat;
+}
+.configure {
+	background: url("./icon-configure.gif") top left no-repeat;
+}
+.moneyFlag {
+	background: url("./flags/dollar-sign.gif") top left no-repeat;
+}
+.exclamationFlag {
+	background: url("./flags/exclamation.gif") top left no-repeat;
+}
+.noSymbolFlag {
+	background: url("./flags/no-symbol.gif") top left no-repeat;
+}
+.questionFlag {
+	background: url("./flags/question-mark.gif") top left no-repeat;
+}
+.copyFlag {
+	background: url("./flags/copy-flag.gif") top left no-repeat;
+}
+.blueFlag {
+	background: url("./flags/blue-flag.gif") top left no-repeat;
+}
+.greenFlag {
+	background: url("./flags/green-flag.gif") top left no-repeat;
+}
+.redFlag {
+	background: url("./flags/red-flag.gif") top left no-repeat;
+}
+.yellowFlag {
+	background: url("./flags/yellow-flag.gif") top left no-repeat;
+}
+.viewAds {
+	background: url("./icon-view-ads.gif") top left no-repeat;
+}
+.viewUpsells {
+	background: url("./icon-upsells.gif") top left no-repeat;
+}
+.blockedItem {
+	background: url("./flags/blocked.gif") top left no-repeat;
+}
+.dayOfWeek {
+	background-image: url("./icon-days-of-week.gif");
+	display: block;
+	float: left;
+	height: 16px;
+	margin: 1px 2px;
+	overflow: hidden;
+	text-indent: -9999px;
+	width: 14px;
+}
+.su-on { background-position: 98px -16px; }
+	.su-off { background-position: 98px 0; }
+.mo-on { background-position: 84px -16px; }
+	.mo-off { background-position: 84px 0; }
+.tu-on { background-position: 70px -16px; }
+	.tu-off { background-position: 70px 0; }
+.we-on { background-position: 56px -16px; }
+	.we-off { background-position: 56px 0; }
+.th-on { background-position: 42px -16px; }
+	.th-off { background-position: 42px 0; }
+.fr-on { background-position: 28px -16px; }
+	.fr-off { background-position: 28px 0; }
+.sa-on { background-position: 14px -16px; }
+	.sa-off { background-position: 14px 0; }
+.ebayListing {
+	background-image: url("./icon-ebay-listings.png");
+	background-repeat: no-repeat;
+}
+.ebayRelist-On {background-position: 0 0; }
+.ebayRelist-Off {background-position: 0 -20px; }
+.ebayRevise-On {background-position: -18px 0; width: 19px !important; }
+.ebayRevise-Off {background-position: -18px -20px; width: 19px !important; }
+.ebayWithdraw-On {background-position: -39px 0; }
+.ebayWithdraw-Off {background-position: -39px -20px; }
+.ebayVariations-On {background-position: -57px 0; }
+.ebayVariations-Off {background-position: -57px -20px; }
+.ebayCatalog-On {background-position: -75px 0; }
+.ebayCatalog-Off {background-position: -75px -20px; }
+/* Filter ------------------------------------------------------------------------------------- */
+html tr.filterMenu td {
+	background-color: #EFEFEF;
+	background-image: none;
+	border-top-width: 0;
+	border-bottom: 1px solid #333;
+	font-size: 12px;
+}
+html tr.filterMenu table tr, 
+html tr.filterMenu table tr td {
+	border: 0;
+}
+html tr.filterMenu .filterSection {
+	font-size: 12px;
+	font-weight: bold;
+}
+.filterInfo {
+	display: block;
+	float: left;
+	margin: 15px 0;
+	min-height: 260px;
+	padding-left: 15px;
+	width: 15%;
+}
+.filterInfo p {
+	margin-right: 15px;
+}
+.filterProperties {
+	border-left: 1px solid #D2D2D2;
+	display: block;
+	float: left;
+	margin: 15px 0;
+	min-height: 260px;
+	height: auto !important;
+	height: 260px;
+	padding-left: 15px;
+	width: 48%;
+}
+.filterProperties table {
+	margin-right: 15px;
+	width: auto;
+}
+.filterProperties table tr td {
+	border-bottom: 1px solid #D2D2D2;
+	margin-bottom: 10px;
+}
+.filterProperties table input, 
+.filterProperties table select {
+	margin: 0 10px 10px 0;
+}
+a.advancedFunctions:link, a.advancedFunctions:visited {
+	color: #F60;
+	font-size: 12px;
+	display: block;
+	float: left;
+	margin-left: 30px;
+	padding-top: 4px;
+	text-decoration: underline;
+}
+a.advancedFunctions:hover {
+	color: #555;
+	text-decoration: none;
+}
+.filterSave {
+	border-left: 1px solid #D2D2D2;
+	display: block;
+	float: left;
+	margin: 15px 0;
+	min-height: 260px;
+	padding-left: 15px;
+	width: 28%;
+}
+.filterSave p{
+	margin-left: 5px;
+}
+.filterSaveNote {
+	background-color: #FEF6E0;
+	border: 1px solid #EFE1B9;
+	padding: 5px 10px; 
+	margin: 10px 0;
+}
+.filterSaveNote p {
+	font-size: 12px;
+	line-height: 18px;
+}
+.filterSaveNote strong {
+	color: #F0AC5C;
+}
+/* Grid Date Bar --------------------------------------------------------------------------------- */
+html tr.gridDateBar td {
+	background: url("./primary-nav-bg.png") #333 top left repeat-x;
+	color: #FFF;
+	font-size: 12px;
+}
+.gridDateBar .filterButtons {
+	float:left;
+	padding: 2px 5px 2px 3px;
+}
+.gridDateBar .filterSelector {
+	float:left;
+	padding-top: 3px;
+}
+.dateBarQuickPick {
+	font-size: 12px;
+	padding-top: 5px;
+}
+.dateBarQuickPick a {
+	color: #FFF;
+	text-decoration: none;
+}
+.dateBarQuickPick a:hover {
+	color: #FEB55A;
+	text-decoration: underline;
+}
+.dateBarQuickPick a.active {
+	color: #FEB55A;
+	font-weight: bold;
+}
+.groupColumns {
+	float: left;
+	font-size: 12px;
+	padding-top: 2px;
+	padding-right: 5px;
+}
+.sortColumns {
+	float: left;
+	font-size: 12px;
+	padding-top: 2px;
+	padding-right: 5px;
+}
+.changeSortColumns:link, .changeSortColumns:visited {
+	color: #FEB55A;
+	text-decoration: none;
+}
+.changeSortColumns:hover {
+	color: #FEB55A;
+	text-decoration: underline;
+}
+.sortColumnSettings {
+	background-color: #fff;
+	border: 2px solid #E5E5E5;
+	color: #000;
+	margin: 0;
+	padding: 10px 10px 15px;
+	z-index: 100;
+}
+.sortColumnSettings table {
+	width: 400px;
+}
+.sortColumnSettings table, .sortColumnSettings table tr, .sortColumnSettings table tr td {
+	background-color: #fff;
+	background-image: none;
+	border: none;
+	color: #000;
+}
+.sortColumnSettings .actionBar {
+	margin-top: 15px;
+}
+.sortColumnSettingsWrap {
+	display:inline-table;
+	/* \*/display:block;/**/
+}
+.sortColumnSettingsWrap {
+	display: none;
+	margin-top: 3px;
+	padding:0 3px 3px 0;
+	position: absolute;
+	background:	url("./shadow.png") right bottom no-repeat;
+}
+
+/* Grid Date Bar Custom Date Range Row --------------------------------------------------------------- */
+/* Grid Search Box ----------------------------------------------------------------------------------- */
+html tr.dateBarCustomRangeRow td {
+	background-image: none;
+	background-color: #FEF6E0;
+	font-size: 12px;
+}
+.dateBarCustomRangeRow ul {
+
+}
+.dateBarCustomRangeRow ul li {
+	display: inline;
+	float: left;
+	margin: 3px 15px 3px 3px;
+}
+/* Grid Search Box ----------------------------------------------------------------------------------- */
+
+html .gridSearchBoxOuter {
+	float: right;
+	height: 24px;
+	margin: 1px 0 0 0;
+	padding: 0;
+	text-align: right;
+	width: 286px;
+}
+html .gridSearchBoxInner {
+	/*background: url("../Default.aspx_files/search-box-start.gif") top left no-repeat; */
+	background: url("./search-box-start.gif") top left no-repeat;
+	display: block;
+	height: 24px;
+	margin: 0;
+	padding: 0 0 0 6px;
+	text-align: right;
+}
+html .gridSearchBoxInner input {
+	background-image: none;
+	border: 0;
+	border-collapse: collapse;
+	color: #333;
+	float: left;
+	font-family: Arial, Helvetica, Verdana, sans-serif;
+	font-size: 12px;
+	margin: 0;
+	padding: 0;
+}
+html .gridSearchBoxInner p {
+	background-image: none;
+	border: 0;
+	color: #333;
+	float: left;
+	font-family: Arial, Helvetica, Verdana, sans-serif;
+	font-size: 12px;
+	margin: 5px 5px 0 5px;
+	padding: 0;
+}
+html .gridSearchBoxInner select {
+	background-image: none;
+	border: 1px solid #DDD;
+	border-collapse: collapse;
+	color: #333;
+	float: left;
+	font-size: 12px;
+	margin: 2px 6px 0 0;
+	padding: 1px 0;
+	width: 127px;
+}
+* html .gridSearchBoxInner select {
+	margin: 2px 0 0 0;
+}
+html .simpleSearchTextInput {
+	background: none;
+	border: none;
+	border-collapse: collapse;
+	position: relative;
+	top: 4px;
+	margin: 0;
+	padding: 1px 0;
+	width: 100px;
+}
+html .clearSearch {
+	/* background: url("../Default.aspx_files/icon-clear-search.gif") top left no-repeat; */
+	background: url("./icon-clear-search.gif") top left no-repeat;
+	display: block;
+	float: right;
+	height: 24px;
+	margin: 0 3px;
+	overflow: hidden;
+	padding: 0;
+	text-indent: -9999px;
+	width: 16px;
+}
+/* buttonBarContainer  ------------------------------------------------------------------------------------- */
+.grid thead .buttonBarContainer, .grid thead .buttonBarContainer tr {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+}
+.grid thead .buttonBarContainer tr td {
+	border: none;
+	margin: 0;
+	padding: 0;
+	vertical-align: top;
+}
+/* global messages ----------------------------------------------------------------------------------------- */
+.globalMessage {
+	color: #000;
+	border-style: solid;
+	border-width: 1px;
+	font-size: 12px;	
+	margin: 0 0 20px 0;
+	padding: 15px 15px 5px 15px;
+}
+.globalMessage h4 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 15px;
+	font-weight: bold;
+	margin: 0 0 10px 0;
+	padding: 0 0 0 20px;
+}
+.globalMessage p {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	line-height: 1.25em;
+	margin: 0 0 10px 0;
+	padding: 0;
+}
+.globalErrors {
+	background-color: #FAEDED;
+	border-color: #962222;
+}
+.globalErrors h4 {
+	background: #FAEDED url("./error-icon.gif") left 1px no-repeat;
+	color: #962222;
+}
+.globalCaution {
+	background-color: #FEF6E0;
+	border-color: #D1AB38;
+}
+.globalCaution h4 {
+	background: #FEF6E0 url("./icon-caution.gif") left 1px no-repeat;
+	color: #D1AB38;
+}
+.globalSuccess {
+	background-color: #ECF7E6;
+	border-color: #1F8B06;
+}
+.globalSuccess h4 {
+	background: #ECF7E6 url("./icon-green-check.gif") left 1px no-repeat;
+	color: #1F8B06;
+}
+.globalInfo {
+	background-color: #CFEBF7;
+	border-color: #4A97C1;
+}
+.globalInfo h4 {
+	background: #CFEBF7 url("./icon-information.gif") left 1px no-repeat;
+	color: #4A97C1;
+}
+/* footer -------------------------------------------------------------------------------------------------- */
+#footer {
+	background-color: #EDEDEB;
+	border-top: 1px solid #B9B9B9;
+	color: #666;
+	font-family: Arial, Helvetica, Verdana, sans-serif;
+	font-size: 12px;
+	margin: 20px 0 0 0;
+	padding-top: 10px;
+	height: 40px;
+}
+#footer #legal {
+	font-family: Arial, Helvetica, Verdana, sans-serif;
+	line-height: 1.25em;
+	margin: 0 20px 0 0;
+	padding: 0;
+}
+#footer #privacy {
+	float: right;
+	font-family: Arial, Helvetica, Verdana, sans-serif;
+	margin: 0;
+	padding: 0;
+	text-align: right;
+	width: 270px;
+}
+#footer a:link, #footer a:visited {
+	color: #0A458B;
+	font-family: Arial, Helvetica, Verdana, sans-serif;
+	margin: 0;
+	padding: 0 3px;
+	text-decoration: none;
+}
+#footer a:hover {
+	color: #041D3C;
+	margin: 0;
+	padding: 0 3px;
+	text-decoration: underline;
+}
+/*.gridViewPillowButtonBar {
+	background: #C8C8C8 url("./grid/grid-button-bar-bg.jpg") top left repeat-x;
+	color: #333;
+	font-family: Arial, Helvetica, Verdana, sans-serif;
+}
+.gridViewPillowButtonBar h3 {
+	font-size: 15px;
+	font-weight: bold;
+	padding: 10px 0 0 20px;
+}*/
+
+html .form-section a:link, .form-section a:visited {
+	color: #333;
+	text-decoration: none;
+}
+
+html .form-section a:hover {
+	color: #333;
+	text-decoration: underline;
+}
+/* Message Banner ------------------------------------------------------------------------------------- */
+#messageBanner {
+	background: -moz-linear-gradient(top, #ffffff 5%, #ffffb2 50%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(5%,#ffffff), color-stop(50%,#ffffb2)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #ffffff 5%,#ffffb2 50%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #ffffff 5%,#ffffb2 50%); /* Opera11.10+ */
+	background: -ms-linear-gradient(top, #ffffff 5%,#ffffb2 50%); /* IE10+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffb2',GradientType=0 ); /* IE6-9 */
+	background: linear-gradient(top, #ffffff 5%,#ffffb2 50%); /* W3C */
+	background-color: #FFFFB2; /* Old browsers */
+	border-bottom: 1px solid #EBEBAF;
+	font-family: Arial, Helvetica, Verdana, sans-serif;
+	font-size: 12px;
+	margin: 1px 0 0 0;
+	padding: 0; 
+}
+* html #messageBanner {
+	background-color: #FFFFB2; /* Old browsers */
+}
+#messageBanner p {
+	color: #666;
+	font-family: Arial, Helvetica, Verdana, sans-serif;
+	font-size: 12px;
+	margin: 0;
+	padding: 6px 15px 5px 15px;
+}
+#messageBanner p strong {
+	color: #000;
+}
+#messageBanner a:link, #messageBanner a:visited {
+	color: #0A458B;
+	text-decoration: underline;
+}
+#messageBanner a:hover {
+	color: #1783D2;
+	text-decoration: none;
+}
+/* Nyro Modal --------------------------------------------------------------------------------- */
+div#nyroModalFull {
+	color: #000;
+}
+div#nyroModalLoading {
+	border: 0px solid #777;
+	width: 150px;
+	height: 150px;
+	text-indent: -9999em;
+	background: #fff url("../images/ajaxLoader.gif") no-repeat;
+	background-position: center;
+}
+div#nyroModalLoadingAlt {
+	border: 0px solid #777;
+	width: 150px;
+	height: 150px;
+	text-indent: -9999em;
+	background: #fff url("../images/ajaxLoader.gif") no-repeat;
+	background-position: center;
+}
+div#nyroModalLoading.error {
+	border: 4px solid #f66;
+	line-height: 20px;
+	padding: 20px;
+	width: 300px;
+	height: 100px;
+	text-indent: 0;
+	background: #fff;
+}
+div#nyroModalWrapper {
+	background: #fff;
+	border: 4px solid #777;
+	border-top-width: 23px;
+}
+a#closeBut {
+	position: absolute;
+	display: block;
+	top: -23px;
+	right: 0px;
+	width: 24px;
+	height: 23px;
+	text-indent: -9999em;
+	background: url("../images/modal-close.jpg") no-repeat;
+	outline: 0;
+}
+h1#nyroModalTitle {
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	top: -22px;
+	left: 5px;
+	font-size: 12px;
+	color: #ddd;
+	background: #fff;
+}
+div.wrapper div#nyroModalContent {
+	background-color:#ffffff;
+	margin: 8px;
+}
+div.wrapper div#nyroModalContent form {
+	margin: 0;
+	padding: 0;
+}
+div.wrapperImg div#nyroModalContent {
+	position: relative;
+	overflow: hidden;
+	text-align: center;
+}
+div.wrapperImg img {
+	vertical-align: baseline;
+}
+div#nyroModalWrapper div.wrapper
+{
+}
+
+div.wrapperImg div#nyroModalContent div {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	background: black;
+	padding: 10px;
+	margin: 10px;
+	border: 1px white dotted;
+	overflow: hidden;
+	opacity: 0.2;
+	filter: alpha(opacity=20);
+}
+div.wrapperImg div#nyroModalContent div:hover {
+	opacity: 0.5;
+	filter: alpha(opacity=50);
+	cursor: help;
+}
+div.wrapperImg a {
+	outline: none;
+	position: absolute;
+	top: 0;
+	height: 100%;
+	cursor: pointer;
+	text-indent: -9999em;
+	background-image: url("data:image/gif;base64,AAAA"); /* Trick IE6 */
+}
+a.nyroModalPrev {
+	left: 0;
+	width: 40%;
+}
+a.nyroModalPrev:hover {
+	background: url("../images/nyromodal-prev.gif") left 20% no-repeat;
+}
+a.nyroModalNext {
+	right: 0;
+	width: 40%;
+}
+a.nyroModalNext:hover {
+	background: url("../images/nyromodal-next.gif") right 20% no-repeat;
+}
+/* Beta Feedback --------------------------------------------------------------------------------- */
+.betaFeedbackLoadingAnimation {
+	min-width: 150px;
+	min-height: 150px;
+	background: #FFFFFF url("/Themes/Default/images/ajaxLoader.gif") no-repeat scroll center center;
+}
+#betaFeedbackContainer textarea {
+	display:block;
+	margin-bottom:10px;
+}
+#betaFeedbackContainer h2 {
+	margin:0;
+	padding:0;
+	color: #0A458B; 
+	font-size: 15px;
+	font-weight: bold;
+	padding: 0 0 10px 0;
+}
+
+/* Floating grid toolbar --------------------------------------------------------------------------------- */
+.floatHeader {
+	position: absolute;
+	z-index: 10;
+	display: none;
+}
+.header {
+	background-color: #fff;
+	font-size: 15px;
+}
+.separator {
+	clear: both;
+	width: 100px;
+	height: 200px;
+}
+/* End Floating grid toolbar --------------------------------------------------------------------------------- */
+/* All Inventory create menu --------------------------------------------------------------------------------- */
+.createMenu
+{
+    position: absolute;
+    background-color: #DADFE0;
+    display:none;
+    border-collapse:collapse;
+    border-top: solid 1px #C8C8C8;
+    border-left: solid 1px #C8C8C8;
+    border-bottom: solid 1px #000000;
+    border-right: solid 1px #000000;
+}
+.createMenu td
+{
+    color:#000000;
+    padding: 4px;
+    border-bottom: solid 1px #000000;
+}
+.createMenu a
+{
+    color:#000000;
+    text-decoration: none;
+}
+.createMenu td:hover
+{
+    background-color: #C8C8C8;
+}
+/* End All Inventory create menu ----------------------------------------------------------------------------- */
+html .formStyles .labelInline label {
+	color: #333;
+	display: inline;
+	float: none;
+	font-size: 12px;
+	font-weight: normal;
+	margin: 5px 5px 0 0;
+	padding-left: 5px;
+	text-align: left;
+}

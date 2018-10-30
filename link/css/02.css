@@ -1,0 +1,475 @@
+table{
+	border-collapse: collapse;
+	border-spacing: 0;
+	}
+table td{padding:0px;}
+a{
+	text-decoration : none;
+	}
+a:visited {
+	color:#A55858;
+}
+.underline {
+	text-decoration: underline;
+}
+.margin_top2{
+	margin-top:10px;
+	}
+.daohang_1{
+	background-image: url(/link/img/img2/kuang_1.png);
+	background-repeat: no-repeat;
+	height:25px;
+	}
+.daohang_2{
+	background-image: url(/link/img/img2/kuang_2.png);
+	height:25px;
+	}
+.daohang_3{
+	background-image: url(/link/img/img2/kuang_3.png);
+	background-repeat: no-repeat;
+	background-position: bottom right;
+	height:25px;
+	}
+.daohang_11{
+	background-image: url(/link/img/img2/an002.png);
+	background-repeat: no-repeat;
+	height:25px;
+	}
+.daohang_21{
+	background-image: url(/link/img/img2/an004.gif);
+	height:25px;
+	}
+.daohang_31{
+	background-image: url(/link/img/img2/an003.png);
+	background-repeat: no-repeat;
+	background-position: bottom right;
+	height:25px;
+	}
+.daohang_2 a{
+	font-weight:900; 
+	color:#333333;
+	padding-top:3px;
+	padding-left:10px;
+	display:block;
+	font-size: 14px;
+}
+.daohang_21 a{
+	font-weight:900; 
+	color:#ffffff;
+	padding-top:2px;
+	text-align:center;
+	display:block;
+	font-size: 14px;
+}
+
+.neirong_q{
+	background-image: url(/link/img/img2/neirong_q.png);
+	background-repeat : repeat-y;overflow:hidden;
+	}
+.neirong_p{
+	background-image: url(/link/img/img2/neirong_p.png);
+	background-repeat : repeat-y;overflow:hidden;
+	background-position: top right;
+	}
+.daohang2{
+	border-right-style:solid;
+	border-left-style:solid;
+	border-width:1px thin;
+	border-color: #CCCCCC;
+	 }
+.daohang2_11{
+	border-left-style:solid;
+	border-width:1px thin;
+	border-color: #CCCCCC;
+	width:10px;
+	background-color:#FFFFFF;
+	 }
+.daohang2_22{
+	border-right-style:solid;
+	border-width:1px thin;
+	border-color: #CCCCCC;
+	width:5px;
+	background-color:#FFFFFF;
+	}
+.t1{
+	background-image: url(/link/img/img2/t1.gif);
+	background-repeat: no-repeat;
+	height:6px;
+	}
+.t2{
+	background-image: url(/link/img/img2/t2.gif);
+	background-repeat: no-repeat;
+	background-position: top right;
+	height:6px;
+	overflow:hidden;
+	}
+.t3{
+	background-image: url(/link/img/img2/t3.gif);
+	height:6px;
+	}
+.daohang2_z{
+	background-image: url(/link/img/img2/ccc.gif);
+	width: 640px; height: 33px;
+	}
+.daohang2_q{
+	background-image: url(/link/img/img2/q01.gif);
+	background-repeat: no-repeat;
+	width: 640px; height: 33px;
+	}
+.daohang2_p{
+	background-image: url(/link/img/img2/p01.gif);
+	background-repeat: no-repeat;
+	background-position: right;
+	width: 640px; height: 33px;
+	}
+.daohang2_1{
+	background-image: url(/link/img/img2/go.png);
+	background-repeat: no-repeat;
+	height: 21px;
+	width:68px;
+	margin-left:10px;
+	border-style: none;
+	margin:3px 20px 0px 20px;
+	}
+.daohang2_2{
+	background-image: url(/link/img/img2/kuang2_2.png);
+	background-repeat: no-repeat;
+	height: 29px;
+	width:36px;
+	margin-left:10px;
+	border-style : none;
+	}
+.daohang{
+	background-image: url(/link/img/img1/ccc.gif);
+	width: 640px; height: 33px;
+	}
+.daohang_q{
+	background-image: url(/link/img/img1/q01.gif);
+	background-repeat: no-repeat;
+	width: 640px; height: 33px;
+	}
+.daohang_p{
+	background-image: url(/link/img/img1/p01.gif);
+	background-repeat: no-repeat;
+	background-position: right;
+	width: 640px; height: 33px;
+	position :relative;
+	}
+.daohang_a{
+	color: #666666;	
+	font-size:14px;
+	padding:5px 0px 0px 30px;
+	font-weight:700;
+	}
+.daohang_aa{
+	background-color:#FFFFFF;
+	padding-left:152px;
+	font-size:0;
+}
+.diandian{
+	border-bottom:1px dotted #EDB800;
+	padding-top:5px;
+	height:25px;
+	vertical-align: middle;
+	list-style-type: none;
+	}
+.diandian a{
+	color: #333333;
+	display:block;
+	}
+.bb_home_biao{
+	-moz-background-clip:border;
+	-moz-background-inline-policy:continuous;
+	-moz-background-origin:padding;
+	background:#cccccc none repeat scroll 0 0;
+	border-collapse:separate;
+	border-spacing:1px;
+	empty-cells:show;
+	margin:5px 0;
+	}
+.bb_home_biao a{
+	text-decoration: underline;
+}
+.bb_home_biao td{
+	font-size:12px;
+	padding:3px;
+	-moz-background-clip:border;
+	-moz-background-inline-policy:continuous;
+	-moz-background-origin:padding;
+	background:#fefbc7 none repeat scroll 0 0;
+	text-align:center;
+}
+.bb_home_biao th{
+	text-align:center;
+}
+.bb_home_biao1{
+	background:#fffef1 none repeat scroll 0 0;
+	}
+.bb_home_biao1 th{
+	font-weight : normal;
+}
+.bb_home_biao2{
+	background:#FFF3AA none repeat scroll 0 0;
+	}
+.bb_home_biao2 th{
+	padding:3px;
+	}
+#biao_zuo{
+	text-align:left;
+	padding-left:20px;
+	}
+.status0{
+	background-image:url(/link/img/img2/status0.png);
+	width:135px;
+	height:20px;
+	margin-bottom:3px;
+	}
+.status0 a{
+	padding-right:10px;
+	text-align:right;
+	display:block;
+	}
+.status3{
+	background-image:url(/link/img/img2/status3.png);
+	width:135px;
+	height:20px;
+	margin-bottom:3px;
+	}
+.status3 a{
+	padding-right:10px;
+	text-align:right;
+	display:block;
+	}
+.status5{
+	background-image:url(/link/img/img2/status5.png);
+	width:135px;
+	height:20px;
+	margin-bottom:3px;
+	}
+.status5 a{
+	padding-right:10px;
+	text-align:right;
+	display:block;
+	}
+.status1{
+	background-image:url(/link/img/img2/status1.png);
+	width:135px;
+	height:20px;
+	margin-bottom:3px;
+	}
+.status1 a{
+	padding-right:10px;
+	text-align:right;
+	display:block;
+	}
+.status9{
+	width:65px;
+	height:15px;
+	color: #333333;
+	}	
+.order_menu {
+	position: absolute;
+	top: 0px;
+	left:0px;
+	width: 160px;
+	display: none;
+}
+.order_menu_btn{
+	text-decoration: underline;
+}
+/** sprite */
+.sprite_checkout_complete,.sprite_checkout_incomplete,.sprite_pay_complete,.sprite_pay_wait,.sprite_shipped_1,
+.sprite_shipped_0,.sprite_feedback_left_1,.sprite_feedback_left_0,.sprite_feedback_not_received,.sprite_feedback_received,
+.sprite_pay_progress,.sprite_arrow_down,.sprite_pay_backmoney,
+.sprite_invoice_send,.sprite_cancelorder,.sprite_aaq_send,
+.sprite_feedback_Negative,.sprite_feedback_Neutral,.sprite_feedback_Positive,.sprite_pay_isrefunds
+{
+	display:block;
+	background-image: url("/link/img/sprite.png");
+	overflow: hidden;
+	float: left;
+	width: 20px;
+	height: 20px;
+	text-indent: 20px;
+}
+.sprite_aaq_send{
+	background-position:-198px -285px; 
+}
+.sprite_checkout_complete{
+	background-position:-102px -19px; 
+}
+.sprite_checkout_incomplete{
+	background-position:-78px -19px;
+}
+.sprite_pay_complete{
+	background-position:-51px -96px;
+}
+.sprite_pay_isrefunds{
+	background-position:-91px -96px;
+}
+.sprite_pay_backmoney {
+	background-position:-119px -96px;
+}
+.sprite_pay_wait{
+	background-position:0px -96px;
+}
+.sprite_pay_progress{
+	background-position:0px 24px;
+}
+.sprite_shipped_1{
+	background-position:-51px -69px;
+}
+.sprite_shipped_0{
+	background-position:0px -69px;
+}
+.sprite_feedback_left_1{
+	background-position:-52px -122px;
+}
+.sprite_feedback_left_0{
+	background-position:0px -121px;
+}
+.sprite_feedback_received{
+	background-position: -53px -121px;
+}
+.sprite_feedback_not_received{
+	background-position:-77px -121px;
+}
+.sprite_{
+	background-position:
+}
+.sprite_arrow_down{
+	background-position: -16px -196px
+}
+.sprite_invoice_send{
+	background-position: -198px -285px;
+}
+.sprite_cancelorder{
+	background-image: url("/link/img/email.jpg");
+}
+.sprite_feedback_Negative{
+	background-position:0px 288px;
+}
+.sprite_feedback_Neutral{
+	background-position:-24px 288px;
+}
+.sprite_feedback_Positive{
+	background-position: -51px 288px;
+}
+
+.app_top_right_menu{
+	float:right;
+	display: block;
+}
+.app_top_right_menu ul{
+	list-style: none;
+}
+.app_top_right_menu ul li , .top_right_menu  li{
+	margin-left:1px;
+	border:1px solid green;
+	list-style: none;
+	list-style-type:none;
+	float:left;
+}
+
+.app_top_right_menu ul li a {
+	padding: 2px 10px;
+	width: 110px;
+	display: block;
+	text-align: center;
+	background: none;
+	color: #424242;
+}
+
+.app_top_right_menu ul li a:hover ,.app_top_right_menu ul li.active{
+	background: #e8ffbf;
+	color: #71982d;
+}
+.logo_long{
+	display:block;
+	float:left;
+	width:135px;
+	height:54px;
+	}
+.mysprite_shipped_0,.mysprite_shipped_1
+{
+	display:block;
+	background-image: url("/link/img/MyEbaySprite.png");
+	overflow: hidden;
+	float: left;
+	width: 20px;
+	height: 20px;
+	text-indent: 20px;
+}
+.mysprite_shipped_1{
+	background-position:-51px -69px;
+}
+.mysprite_shipped_0{
+	background-position:0px -69px;
+}
+.have_been_consigned{
+	display:block;
+	background-image: url("/link/img/jiaoyunbiaoshi.jpg");
+	overflow: hidden;
+	float: left;
+	width: 19px;
+	height: 17px;
+	text-indent: 20px;
+}
+.have_been_egd{
+	display:block;
+	background-image: url("/link/img/egd.jpg");
+	overflow: hidden;
+	float: left;
+	width: 20px;
+	height: 20px;
+	text-indent: 20px;
+}
+.have_been_aejh{
+	display:block;
+	background-image: url("/link/img/aejianhuo.png");
+	overflow: hidden;
+	float: left;
+	width: 35px;
+	height: 20px;
+	text-indent: 20px;
+}
+.have_been_fba{
+	display:block;
+	background-image: url("/link/img/fba.jpg");
+	overflow: hidden;
+	float: left;
+	width: 20px;
+	height: 15px;
+	text-indent: 20px;
+}
+.have_been_fbc
+{
+	display:block;
+	background-image: url("/link/img/fbc.png");
+	overflow: hidden;
+	float: left;
+	width: 20px;
+	height: 15px;
+	text-indent: 20px;
+}
+.have_been_gsp
+{
+	display:block;
+	background-image: url("/link/img/gsp.jpg");
+	overflow: hidden;
+	float: left;
+	width: 20px;
+	height: 15px;
+	text-indent: 20px;
+}
+ #gotop{
+     display:none;
+     width:55px;
+     height:55px;
+     position:fixed;
+     right:50px;
+     bottom:50px;
+     background:url(/link/img/backtop2013.png) no-repeat -70px 0px;    
+ }
+ 
+ 

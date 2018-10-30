@@ -1,0 +1,417 @@
+﻿.megaMenuContainer {
+	background: #fff url("./header-sprite.png") left bottom repeat-x;
+	font-size: 12px;
+	/*font-family: Arial, Helvetica, Verdana, sans-serif;*/
+	clear: both;
+	margin: 0;
+	min-height: 26px;
+	*height: 27px; /* IE 7 & 6 */
+	padding: 0;
+	position: relative;
+	z-index: 9000;
+}
+.megaMenu {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+.megaMenu li {
+	display: inline;
+	float: left;
+	margin: 0;
+	padding: 0;
+	position: relative;
+	
+}
+.megaMenu li.cwMenu-dropDown {
+	background: url("./header-sprite.png") center -183px repeat-x;
+}
+.megaMenu li li.cwMenu-dropDown {
+	background-image: none;
+}
+.megaMenu li a.cwMenu-dropDown {
+}
+.megaMenu li li a.cwMenu-dropDown,
+.megaMenu li li li a.cwMenu-dropDown,
+.megaMenu li li li li a.cwMenu-dropDown {
+	background: url("./megamenu-horizontal-dots-gray-bg.png") bottom left repeat-x;
+	padding-right: 0;
+}
+.megaMenu li li li a.cwMenu-dropDown,
+.megaMenu li li li li a.cwMenu-dropDown {
+	background-image: none;
+}
+.megaMenu li.active, 
+.megaMenu li.cwMenu-pathToCurrent {
+	/* background-color: #B9B9B9; */
+}
+html .megaMenu ul li.active {
+	background: url("./megamenu-top-bg.gif") left top repeat-x;
+}
+.megaMenu li.active .hoverDisplay li.active li.active,
+html .megaMenu .navReports .hoverDisplay li.active,
+html .megaMenu .navHelp .hoverDisplay li.active {
+	background-image: none;
+}
+.megaMenu a.active, 
+.megaMenu a.cwMenu-pathToCurrent {
+	color: #EC7600;
+}
+.megaMenu a:hover,
+.megaMenu a:active,
+.megaMenu a.cwMenu-hovered {
+	color: #EC7600;
+}
+
+.megaMenu > li:hover,
+.megaMenu li a:hover,
+.megaMenu li.cwMenu-hovered,
+.megaMenu li.cwMenu-leaf a:hover ,
+.megaMenu li.cwMenu-leaf a.active {
+	background: url("./header-sprite.png") center -233px repeat-x;
+	/* background-color: #B9B9B9; */
+	color: #EC7600;
+}
+.megaMenu > li.navHome:hover,
+.megaMenu li.navHome a:hover,
+.megaMenu li.navHome.cwMenu-hovered,
+.megaMenu li.navHome.cwMenu-leaf a:hover {
+	background-image: none;
+}
+.megaMenu > li.navHome:hover span,
+.megaMenu li.navHome a:hover span,
+.megaMenu li.navHome.cwMenu-hovered span,
+.megaMenu li.navHome.cwMenu-leaf a:hover span {
+	/*background: url("./header-sprite.png") -235px -157px no-repeat;*/
+	background: url("./header-sprite.png") -355px -235px no-repeat;
+	background-size: 1800px 540px;
+}
+.megaMenu li a {
+	color: #333;
+	font-size: 12px;
+	font-weight: bold;
+	margin: 0;
+	padding: 5px 18px 8px;
+	text-decoration: none;
+	white-space: nowrap;
+	display: block;
+}
+.megaMenu ul {
+	background-image: url("./megamenu-vertical-dots-gray-bg.png");
+	background-position: top right;
+	background-repeat: repeat-x repeat-y;
+	border: 1px solid #000;
+	border-top: none;
+	float: left;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+.megaMenu ul ul,
+.megaMenu ul ul ul {
+	background-image: none;
+}
+.megaMenu ul li {
+	border: none;
+	display: block;
+	float: left;
+	font-weight: bold;
+	padding: 0 11px 0 10px;
+}
+html .megaMenu ul li a {
+	background: url("./megamenu-horizontal-dots-gray-bg.png") bottom left repeat-x;
+	color: #FFF;
+	display: block;
+	/*font-family: Arial, Helvetica, Verdana, sans-serif;*/
+	font-size: 13px;
+	line-height: 1.25em;
+	margin: 2px 0;
+	padding: 5px 0;
+	white-space: normal;
+	width: 124px;
+}
+.megaMenu ul ul li a,
+.megaMenu ul ul ul li a {
+	font-size: 12px;
+	width: 122px;
+}
+.megaMenu ul li a:link, .megaMenu ul li a:visited {
+	color: #EC7600;
+	text-decoration: none;
+}
+.megaMenu ul li a:hover {
+	background: url("./megamenu-horizontal-dots-gray-bg.png") bottom left repeat-x;
+	color: #EC7600;
+	text-decoration: underline;
+}
+.megaMenu ul ul li a:link, .megaMenu ul ul li a:visited,
+.megaMenu ul ul ul li a:link, .megaMenu ul ul ul li a:visited {
+	color: #FFF;
+	/*border: 1px solid transparent;*/
+	padding-left: 2px;
+	text-decoration: none;
+}
+.megaMenu ul ul li a:hover,
+.megaMenu ul ul ul li a:hover {
+	background-image: none;
+	background-color: rgba(102, 153, 204, 0.5);
+	*background-color: #69C;
+	background-color: #69C\0/;
+	/*border: 1px solid rgba(51, 51, 51, 0.75);*/
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.5) inset, 0 1px 1px rgba(0, 0, 0, 0.5) inset, 0 -1px 1px rgba(255, 255, 255, 0.5) inset;
+	color: #FFF;
+	padding-left: 2px;
+	text-decoration: none;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	margin-left: -5px;
+    padding-left: 7px;
+}
+html .megaMenu ul a.megaActive:link, html .megaMenu ul a.megaActive:visited {
+	background-color: rgba(13, 108, 179, 0.5);
+	*background-color: #0D6CB3;
+	background-color: #0D6CB3\0/;
+    border: 1px solid rgba(51, 51, 51, 0.75);
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.5) inset, 0 1px 1px rgba(0, 0, 0, 0.5) inset, 0 -1px 1px rgba(255, 255, 255, 0.5) inset;
+	color: #FFF;
+	padding-left: 2px;
+	text-decoration: none;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	margin-left: -5px;
+    padding-left: 7px; 
+}
+html .megaMenu ul a.megaActive:hover {
+	background-color: rgba(13, 108, 179, 0.8);
+	*background-color: #0D6CB3;
+	background-color: #0D6CB3\0/;
+    border: 1px solid rgba(51, 51, 51, 0.75);
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.5) inset, 0 1px 1px rgba(0, 0, 0, 0.5) inset, 0 -1px 1px rgba(255, 255, 255, 0.5) inset;
+	color: #FFF;
+	padding-left: 2px;
+	text-decoration: none;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	margin-left: -5px;
+    padding-left: 7px;
+}
+.megaMenu ul li ul,
+.megaMenu ul li ul li ul {
+	border: none;
+	float: none;
+	-moz-border-radius-bottomleft: 0;
+	-moz-border-radius-bottomright: 0;
+	-webkit-border-bottom-left-radius: 0;
+	-webkit-border-bottom-right-radius: 0;
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
+	padding: 0;
+}
+.megaMenu ul li ul li,
+.megaMenu ul li ul li ul li {
+	border-right: none;
+	display: list-item;
+	float: none;
+	padding: 0;
+}
+.megaMenu ul li.first {
+	background: #666 url("./megamenu-vertical-gray-bg.gif") top left repeat-x;
+	-moz-border-radius-bottomright: 0;
+	-webkit-border-bottom-right-radius: 0;
+	border-bottom-right-radius: 0;
+}
+.megaMenu .first a {
+	width: 121px;
+}
+.megaMenu ul li ul li a,
+.megaMenu ul li ul li ul li a {
+	background-image: none;
+	font-weight: normal;
+}
+.megaMenu .navMarketplaces ul li ul li a,
+.megaMenu .navMarketplaces ul li ul li a:link,
+.megaMenu .navMarketplaces ul li ul li a:visited,
+.megaMenu .navMarketplaces ul li ul li a.active,
+.megaMenu .navMarketplaces ul li ul li a.active:link,
+.megaMenu .navMarketplaces ul li ul li a.active:visited {
+	/* color: #16A5DF; */
+	color: #FFD042;
+	/* color: #FFF; */
+	font-weight: bold;
+	font-size: 12px;
+	border-bottom: 1px dotted #666;
+}
+.megaMenu .navMarketplaces ul li ul li ul li a, 
+.megaMenu .navMarketplaces ul li ul li ul li a:link,
+.megaMenu .navMarketplaces ul li ul li ul li a:visited,
+.megaMenu .navMarketplaces ul li ul li ul li ul li a,
+.megaMenu .navMarketplaces ul li ul li ul li ul li a:link,
+.megaMenu .navMarketplaces ul li ul li ul li ul li a:visited,
+.megaMenu .navMarketplaces ul li ul li ul li a.active,
+.megaMenu .navMarketplaces ul li ul li ul li a.active:link,
+.megaMenu .navMarketplaces ul li ul li ul li a.active:visited, 
+.megaMenu .navMarketplaces ul li ul li ul li ul li a.active,
+.megaMenu .navMarketplaces ul li ul li ul li ul li a.active:link,
+.megaMenu .navMarketplaces ul li ul li ul li ul li a.active:visited {
+	border-bottom: none;
+	color: #FFF;
+	font-weight: normal;
+	font-size: 12px;
+	text-decoration: none;
+}
+.megaMenu .navReports ul li,
+.megaMenu .navHelp ul li {
+	float: none;
+	margin-left: 0;
+}
+.megaMenu .navReports ul li a,
+.megaMenu .navHelp ul li a {
+	background-image: none;
+	font-size: 12px;
+	font-weight: normal;
+	width: 121px;
+}
+.megaMenu .navReports ul li a:link, .megaMenu .navReports ul li a:visited,
+.megaMenu .navHelp ul li a:link, .megaMenu .navHelp ul li a:visited {
+	border: 1px solid transparent;
+	color: #FFF;
+	padding-left: 2px;
+	text-decoration: none;
+}
+.megaMenu .navReports ul li a:hover,
+.megaMenu .navHelp ul li a:hover {
+	background-color: rgba(102, 153, 204, 0.5);
+	*background-color: #69C;
+	background-color: #69C\0/;
+	border: 1px solid rgba(51, 51, 51, 0.75);
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.5) inset, 0 1px 1px rgba(0, 0, 0, 0.5) inset, 0 -1px 1px rgba(255, 255, 255, 0.5) inset;
+	background-image: none;
+	border: 1px solid #333;
+	color: #FFF;
+	padding-left: 2px;
+	text-decoration: none;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px; 
+	margin-left: -5px;
+    padding-left: 7px;
+	
+}
+html .megaMenu .navReports ul a.megaActive:hover,
+html .megaMenu .navHelp ul a.megaActive:hover {
+	background-color: rgba(102, 153, 204, 0.8);
+	*background-color: #0D6CB3;
+	background-color: #0D6CB3\0/;
+	border: 1px solid rgba(51, 51, 51, 0.75);
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.5) inset, 0 1px 1px rgba(0, 0, 0, 0.5) inset, 0 -1px 1px rgba(255, 255, 255, 0.5) inset;
+	color: #FFF;
+	padding-left: 2px;
+	text-decoration: none;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	margin-left: -5px;
+    padding-left: 7px; 
+}
+.megaMenu .hoverDisplay {
+	position: absolute;
+	top: 26px;
+	*top: 27px; /* IE 7 & 6 */
+	z-index: 10000;
+}
+
+.megaMenu li.navHome a {padding: 4px 5px 8px;}
+/*.navHome a span {background: url("./header-sprite.png") -235px -127px no-repeat; text-indent: -9999px; display: block; float: left; width: 20px; height: 20px;}*/
+.navHome a span {background: url("./header-sprite.png") -355px -190px no-repeat; background-size: 1800px 540px; text-indent: -9999px; display: block; float: left; width: 20px; height: 20px;}
+.navInventory a {}
+.navMarketplaces a {}
+.navSearch a {}
+.navShopping a {}
+.navStores a {}
+.navSales a {}
+.navReports a {}
+.navMyAccount a {}
+.navHelp a {}
+
+* html .megaMenu li.navHome a {padding: 4px 5px 8px;}
+/** html .navHome a span {background: url("./header-sprite.png") -235px -127px no-repeat; text-indent: -9999px; display: block; float: left; width: 20px; height: 20px;}*/
+* html .navHome a span {background: url("./header-sprite.png") -355px -190px no-repeat; background-size: 1800px 540px; text-indent: -9999px; display: block; float: left; width: 20px; height: 20px;}
+* html .navInventory a {}
+* html .navMarketplaces a {}
+* html .navSearch a {}
+* html .navShopping a {}
+* html .navStores a {}
+* html .navSales a {}
+* html .navReports a {}
+* html .navMyAccount a {}
+* html .navHelp a {}
+
+/* Marketplaces menu overrides */
+.navMarketplaces ul li.nm-li-1
+{
+	clear: bolth;
+    float: left;
+	padding-bottom: 0px;
+	padding-top: 0px;
+	border-bottom: 0px;
+	border-top: 0px;
+	list-style-type: none;
+}
+.navMarketplaces ul li ul.nm-ul-2
+{
+    display: none;
+    position: absolute;
+    z-index: 10000;
+    background-image: url(""./megamenu-vertical-dots-gray-bg.png"");
+    background-position: right top;
+    background-repeat: repeat-x;
+    padding: 0 6px 0 11px;
+    border-bottom: solid 1px #000;
+}
+.navMarketplaces ul li a.nm-a-2,
+.navMarketplaces ul li a.nm-a-2:link,
+.navMarketplaces ul li a.nm-a-2:visited
+{
+    border: 1px solid transparent;
+    color: #FFFFFF;
+    padding-left: 2px;
+    background-image: none;
+    font-weight: normal;
+    font-size: 12px;
+}
+.navMarketplaces ul li.active a.nm-a-2.active,
+.navMarketplaces ul li a.nm-a-2:hover,
+.navMarketplaces ul li.active-flyout a.nm-a-2,
+.navMarketplaces ul li a.nm-a-2.cwMenu-dropDown:hover
+{
+    background-image: none;
+	background-color: rgba(102, 153, 204, 0.5);
+	*background-color: #69C;
+	background-color: #69C\0/;
+	border: 1px solid rgba(51, 51, 51, 0.75);
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.5) inset, 0 1px 1px rgba(0, 0, 0, 0.5) inset, 0 -1px 1px rgba(255, 255, 255, 0.5) inset;
+	color: #FFF;
+	padding-left: 2px;
+	text-decoration: none;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	margin-left: -5px;
+    padding-left: 7px;
+}
+.navMarketplaces ul li.active a.nm-a-2.active
+{
+    background-color: rgba(13, 108, 179, 0.5);
+}
+.navMarketplaces ul li.nm-li-1.active-flyout,
+.navMarketplaces ul li.nm-li-1.active
+{
+    background-image: none !important;
+}
+.navMarketplaces ul li ul.nm-ul-2 a.cwMenu-dropDown
+{
+	background: transparent none;
+}

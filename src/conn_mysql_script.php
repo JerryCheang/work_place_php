@@ -1,4 +1,5 @@
 <?php
+
 if($_SERVER['DOCUMENT_ROOT']){
   $sis = explode(PHP_EOL,file_get_contents($_SERVER['DOCUMENT_ROOT']."/../mysql.key"));
 }else{
@@ -16,18 +17,36 @@ define('CONN', '');
 define('TIMEZONE', 'Asia/Shanghai');
 
 try{
+
     $db_web = new PDO('mysql:host='.DBHOST.';dbname='.DBNAME2, DBUSER, DBPWD);
     $db_web->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $db_web->query('SET NAMES utf8;');
 
-    $query="SELECT * FROM `settings`";//需要执行的sql语句
-    $res = $db_web->prepare($query);//准备查询语句
-    $res->execute();            //执行查询语句，并返回结果集
+    $rows = $db_web->query('select * from settings')->fetchAll();
+    $row_count = $db_web->query('select * from settings')->rowCount();
 
-    while($result=$res->fetch(PDO::FETCH_ASSOC)){
-      $web_username = $result["username"];
-      $web_password = $result["password"];
-      $web_site = $result["ibay_site"];
+    for($i_settings=0; $i_settings < $row_count; $i_settings++){
+
+      if($rows[$i_settings]["NAME"] == "value_over_zero_process"){
+      $value_over_zero_process = $rows[$i_settings]["VALUE"];
+      }
+
+      if($rows[$i_settings]["NAME"] == "value_varations_image_process"){
+      $value_varations_image_process = $rows[$i_settings]["VALUE"];
+      }
+
+      if($rows[$i_settings]["NAME"] == "username"){
+      $web_username = $rows[$i_settings]["VALUE"];
+      }
+
+      if($rows[$i_settings]["NAME"] == "password"){
+      $web_password = $rows[$i_settings]["VALUE"];
+      }
+
+      if($rows[$i_settings]["NAME"] == "ibay_web_site"){
+      $web_site = $rows[$i_settings]["VALUE"];
+      }
+
     }
 
 }catch(PDOException  $e ){

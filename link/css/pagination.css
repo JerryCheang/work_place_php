@@ -1,0 +1,75 @@
+.bottomfixed {
+	width: 99%;
+	max-width: 1500px;
+	position: fixed;
+	bottom:0px;
+}
+.pgbackground{
+	background-color: rgba(0, 0, 0, 0);
+	background-image: linear-gradient(rgb(255, 255, 255) 0px, rgb(242, 242, 242) 100%);
+	background-repeat: repeat-x;
+	border: 1px solid rgb(212, 212, 212);
+	color: rgb(34, 34, 34);
+	font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
+	height: 13px;
+	line-height: 15px;
+	margin : 0px;
+	padding: 1px 5px;
+}
+.pagination {
+  font-size: 12px;
+  font-weight: bold;
+  height: 24px;
+}
+
+.pagination p {
+  float: left;
+  color: #666;
+  text-indent: 0;
+  padding: 2px 0 0 0;
+  margin: 0 2em 0 0;
+}
+
+.pagination ul {
+  list-style: none;
+  margin: 5px 0 0 0;
+  padding: 0px;
+}
+
+.pagination li {
+  list-style: none;
+  margin: 0px;
+  display: block;
+  float: left;
+  margin-left: 2px;
+  margin-right: 2px;
+  line-height: 14px;
+}
+
+.pagination li.disabled {
+  padding: 2px 6px 2px 6px;
+  color: white;
+  background: black;
+}
+
+.pagination li.current {
+  padding: 2px 6px 2px 6px;
+  color: white;
+  background: black;
+}
+
+.pagination li.none {
+  border: 1px none;
+  padding: 2px 6px 2px 6px;
+}
+
+.pagination li a {
+  padding: 2px 6px 2px 6px;
+  display: block;
+  text-decoration: none;
+}
+
+.pagination li a:hover {
+  background: black;
+  color:white;
+}

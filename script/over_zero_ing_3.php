@@ -1,6 +1,6 @@
 <?php
 date_default_timezone_set('PRC');
-include('../src/conn_mysql_script.php');
+include('../src/a.php');
 ignore_user_abort(true);
 set_time_limit(0); // 取消脚本运行时间的超时上限
 
@@ -29,31 +29,29 @@ function login_ibay($web_username,$web_password,$web_site){
   	/* 解析cookie结束 */
 }
 
+function check_ing_bool($db_web){
+	$res = $db_web->prepare("SELECT * FROM `settings`"); //准备查询语句
+	$res->execute();            //执行查询语句，并返回结果集
+	while($result=$res->fetch(PDO::FETCH_ASSOC)){
+		$ing_bool = $result["over_zero_process"];
+	}
+	return $ing_bool;
+}
+
 while(1){
 
-	$ing_bool = "OFF";
-
 	if($i){
-		$sql_bool="update settings set over_zero_process='OFF'" ;
 		try {
-				$db_web->query($sql_bool);
+				$db_web->query("update settings set over_zero_process='OFF'");
 			} catch (Exception $e) {
 				echo $e->getMessage();
 		}
 		unset($i);
 	}
 
-	while( $ing_bool == "OFF" ){
-
+	while( check_ing_bool($db_web) == "OFF" ){
 		sleep(10);
 		echo "be waiting\n";
-		$query = "SELECT * FROM `settings`";//需要执行的sql语句
-		$res = $db_web->prepare($query); //准备查询语句
-		$res->execute();            //执行查询语句，并返回结果集
-		while($result=$res->fetch(PDO::FETCH_ASSOC)){
-			$ing_bool = $result["over_zero_process"];
-		}
-
 	}
 
 	$ch = curl_init();
@@ -61,17 +59,19 @@ while(1){
 	curl_setopt($ch, CURLOPT_HEADER, 0);
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 	curl_setopt($ch, CURLOPT_POST, 1);//post方式提交
-	echo $cookie = login_ibay($web_username,$web_password,$web_site);
+	$cookie = login_ibay($web_username,$web_password,$web_site);
 
 	if($cookie){
 		curl_setopt($ch, CURLOPT_COOKIE, $cookie);
 
-		$stmt = $db_web->query('select * from over_zero'); //返回一个PDOStatement对象
-		//$row = $stmt->fetch(); //从结果集中获取下一行，用于while循环
-		$rows = $stmt->fetchAll(); //获取所有
-		$row_count = $stmt->rowCount(); //记录数，2
+		$rows = $db_web->query('select * from over_zero')->fetchAll(); //获取所有
+		$row_count = $db_web->query('select * from over_zero')->rowCount(); //记录数，2
 
 	 for( $i = 3; $i < $row_count; $i = $i + 6 ){
+
+		 if(check_ing_bool($db_web) == "OFF"){
+			 break;
+		 }
 
 			if($rows[$i]["status"] == "Success"){
 				continue;

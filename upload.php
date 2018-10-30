@@ -3,8 +3,8 @@
 include('src/conn_mysql.php');
 set_time_limit(0);
 $post = array (
-	'username' => $_COOKIE["username"],
-	'password' => $_COOKIE["password"],
+	'username' => $web_username,
+	'password' => $web_password,
 	'submit' => '登录'
 );
 //登录地址

@@ -5,6 +5,21 @@ date_default_timezone_set("Asia/Hong_Kong");
 include('conn_mysql.php');
 $upload_bool =1;
 
+function check_ing_bool($db_web){
+
+	$rows = $db_web->query('select * from settings')->fetchAll();
+	$row_count = $db_web->query('select * from settings')->rowCount();
+
+	for($i_settings=0; $i_settings < $row_count; $i_settings++){
+
+		if($rows[$i_settings]["NAME"] == "value_over_zero_process"){
+		return $rows[$i_settings]["VALUE"];
+		}
+
+	}
+
+}
+
 function deleteDir($dir)
 {
 		if (!$handle = @opendir($dir)) {
@@ -23,6 +38,13 @@ function deleteDir($dir)
 		}
 		@rmdir($dir);
 }
+
+while(1){
+
+	while( check_ing_bool($db_web) == "OFF" ){
+		sleep(10);
+		echo "be waiting\n";
+	}
 
 deleteDir("../download/varations_image");
 
@@ -62,8 +84,17 @@ if($upload_bool){
 
 $selleruserid = "hair_trends";
 $sql_table_name = date("Y_m_d",strtotime("0 day"))."_random_".$selleruserid;
+$sql_table_name = str_replace(".","_",$sql_table_name);
 
 for($i_dir=2; $i_dir < count($list_dir); $i_dir++){
+
+	if(check_ing_bool($db_web) == "OFF"){
+		break;
+	}
+
+	if(!strstr($list_dir[$i_dir],"yes_")){
+		continue;
+	}
 
 	$list_pics = scandir("../varations_image/".$list_dir[$i_dir]);
 
@@ -85,13 +116,18 @@ for($i_dir=2; $i_dir < count($list_dir); $i_dir++){
 
   for($i_muban_count = 1; $i_muban_count <= 6; $i_muban_count ++){
 
-    mkdir('../download/varations_image/'.$list_dir[$i_dir]."/".$i_muban_count,0777,true);
+		if(check_ing_bool($db_web) == "OFF"){
+			break;
+		}
 
+
+    mkdir('../download/varations_image/'.$list_dir[$i_dir]."/".$i_muban_count,0777,true);
+		$luckywords = chr(random_int(65,90));
     for($i_pics = 2; $i_pics < count($list_pics); $i_pics++){
 
       $random_id_count = $i_pics - 1;
       $sku = str_replace(".JPG","",$list_pics[$i_pics]);
-			$random_id = chr(random_int(65,90)).random_int(1,9).$random_id_count;
+			$random_id = $luckywords.random_int(0,9).$random_id_count;
 			unset($remove_tag_sku);
 			for($i_tag_sku = 1; $i_tag_sku <= 6; $i_tag_sku++){
 				if(strstr($sku, "_tag_".$i_tag_sku)){
@@ -170,13 +206,13 @@ for($i_dir=2; $i_dir < count($list_dir); $i_dir++){
 				$x2 = 400;
 				$y = 180;
 			}else if(strstr($list_dir[$i_dir],"BOB")){
-				$fontSize  = 70;
+				$fontSize  = 65;
 				$x2 = 750;
 				$y = 100;
 			}else{
 				$x2 = 400;
-				$fontSize  = 75;
-				$y = 920;
+				$fontSize  = 60;
+				$y = 950;
 			}
 
 			imagettftext($newImg, $fontSize, $x, $x2, $y, $col, $font, $random_id);
@@ -207,6 +243,7 @@ for($i_dir=2; $i_dir < count($list_dir); $i_dir++){
 		}else{
 				$matches[0] = "test";
 		}
+
       $sql_insert = "insert into ".$sql_table_name."(muban_count,sku,random_id,url)
       values('".$i_muban_count."','".$sku."','".$random_id."','".$matches[0]."')";
 			try {
@@ -219,24 +256,24 @@ for($i_dir=2; $i_dir < count($list_dir); $i_dir++){
     	}
   	}
 
-}
+	}
 
-$sql_insert = "insert into ".$sql_table_name."(muban_count,sku,random_id,url)
-values('end','end','end','".date("Y_md_h_i",strtotime("0 day"))."')";
+	$sql_insert = "insert into ".$sql_table_name."(muban_count,sku,random_id,url)
+	values('end','end','end','".date("Y_md_h_i",strtotime("0 day"))."')";
 
-try {
+	try {
 		$db_varations_image->query($sql_insert);
 		echo $sql_insert."<br/>".$list_dir[$i_dir];
-	} catch (Exception $e) {
+		} catch (Exception $e) {
 		echo $e."<br/>".$sql_insert;
+	}
+
+	$ch = curl_init();
+	curl_setopt($ch, CURLOPT_URL, "http://".$web_site."/index.php/myibay/logout");
+	curl_setopt($ch, CURLOPT_HEADER, 0);
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+	curl_setopt($ch, CURLOPT_COOKIE, $cookie);
+	$XX = curl_exec($ch);
+	curl_close($ch);
 }
-
-$ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, "http://".$web_site."/index.php/myibay/logout");
-curl_setopt($ch, CURLOPT_HEADER, 0);
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-curl_setopt($ch, CURLOPT_COOKIE, $cookie);
-$XX = curl_exec($ch);
-curl_close($ch);
-
 ?>

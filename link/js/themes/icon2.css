@@ -1,0 +1,125 @@
+﻿.icon-add{
+	background:url(icons2/add.gif) no-repeat;
+}
+.icon-addnew{
+	background:url(icons2/addnew.gif) no-repeat;
+}
+.icon-edit{
+	background:url(icons2/edit.gif) no-repeat;
+}
+.icon-remove{
+	background:url(icons2/remove.gif) no-repeat;
+}
+.icon-save{
+	background:url(icons2/save.gif) no-repeat;
+}
+.icon-close{
+	background:url(icons2/cancel.gif) no-repeat;
+}
+.icon-cut{
+	background:url(icons2/cut.png) no-repeat;
+}
+.icon-ok{
+	background:url(icons2/ok.png) no-repeat;
+}
+.icon-no{
+	background:url(icons2/no.png) no-repeat;
+}
+.icon-cancel{
+	background:url(icons2/cancel.gif) no-repeat;
+}
+.icon-reload{
+	background:url(icons2/reload.png) no-repeat;
+}
+.icon-search{
+	background:url(icons2/search.gif) no-repeat;
+}
+.icon-print{
+	background:url(icons2/print.gif) no-repeat;
+}
+.icon-help{
+	background:url(icons2/help.gif) no-repeat;
+	
+}
+.icon-undo{
+	background:url(icons2/undo.gif) no-repeat;
+}
+.icon-redo{
+	background:url(icons2/redo.gif) no-repeat;
+}
+.icon-tip{
+	background:url(icons2/tip.png) no-repeat;
+}
+.icon-zoomin{
+	background:url(icons2/zoomin.gif) no-repeat;
+}
+.icon-zoomout{
+	background:url(icons2/zoomout.gif) no-repeat;
+}
+.icon-goto{
+	background:url(icons2/goto.gif) no-repeat;
+}
+.icon-date{
+	background:url(icons2/date.gif) no-repeat;
+}
+.icon-filter{
+	background:url(icons2/filter.gif) no-repeat;
+}
+.icon-find{
+	background:url(icons2/find.png) no-repeat;
+}
+.icon-folder{
+	background:url(icons2/folder.gif) no-repeat;
+}
+.icon-folderopen{
+	background:url(icons2/folder-open.gif) no-repeat;
+}
+.icon-lock{
+	background:url(icons2/lock.png) no-repeat;
+}
+.icon-unlock{
+	background:url(icons2/unlock.gif) no-repeat;
+}
+.icon-new{
+	background:url(icons2/new.gif) no-repeat;
+}
+.icon-node{
+	background:url(icons2/node.png) no-repeat;
+}
+.icon-nowait{
+	background:url(icons2/nowait.gif) no-repeat;
+}
+.icon-sort{
+	background:url(icons2/sort.gif) no-repeat;
+}
+.icon-wait{
+	background:url(icons2/wait.gif) no-repeat;
+}
+.icon-upgrade{
+	background:url(icons2/upgrade.gif) no-repeat;
+}
+.icon-downgrade{
+	background:url(icons2/downgrade.gif) no-repeat;
+}
+.icon-download{
+	background:url(icons2/download.gif) no-repeat;
+}
+.icon-upload{
+	background:url(icons2/upload.gif) no-repeat;
+}
+.icon-user{
+	background:url(icons2/user.png) no-repeat;
+}
+.icon-split{
+	background:url(icons2/split.gif) no-repeat;
+}
+.icon-addfolder{
+	background:url(icons2/addfolder.gif) no-repeat;
+}
+
+.icon-expand{
+	background:url(icons2/expand.gif) no-repeat;
+}
+.icon-collapse{
+	background:url(icons2/collapse.gif) no-repeat;
+}

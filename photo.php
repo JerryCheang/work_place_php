@@ -52,7 +52,8 @@ function layout_image_count($count,$side){
 if($_POST["submit"] == "download")
 {
 $zip = new ZipArchive();
-$res = $zip->open(''.$_POST["picture_name"].date("Ymd",strtotime("0 day")).'.zip', ZipArchive::OVERWRITE | ZipArchive::CREATE);
+$zip_name = $_POST["picture_name"].date("Ymdhis").'.zip';
+$res = $zip->open($zip_name, ZipArchive::OVERWRITE | ZipArchive::CREATE);
 if($res)
 {
     compressDir($_POST["picture_path"], $zip);
@@ -60,11 +61,11 @@ if($res)
 }
 
 header('Content-Type:text/html;charset=utf-8');
-header('Content-disposition:attachment;filename='.$_POST["picture_name"].date("Ymd",strtotime("0 day")).'.zip');
-$filesize = filesize('./'.$_POST["picture_name"].date("Ymd",strtotime("0 day")).'.zip');
-readfile('./'.$_POST["picture_name"].date("Ymd",strtotime("0 day")).'.zip');
+header('Content-disposition:attachment;filename='.$zip_name);
+$filesize = filesize('./'.$zip_name);
+readfile('./'.$zip_name);
 header('Content-length:'.$filesize);
-unlink('./'.$_POST["picture_name"].date("Ymd",strtotime("0 day")).'.zip');
+unlink('./'.$zip_name);
 
 }else if($_POST["picture"]){
   echo '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -300,12 +301,12 @@ unlink('./'.$_POST["picture_name"].date("Ymd",strtotime("0 day")).'.zip');
     <option value=\"hair_trends\">hair_trends</option>
     </select>
     </form>
-        <input id=\"submit\" name=\"submit\" value=\"back\" type=\"submit\" onclick=\"javascript:history.back();\" style=\"width:100px;height:30px;\">
+    <input id=\"submit\" name=\"submit\" value=\"back\" type=\"submit\" onclick=\"javascript:history.back();\" style=\"width:100px;height:30px;\">
   	</div>";
   echo '<form action="" method="post">
   <input id="picture_path" name="picture_path" value="./download/picture/'.$_POST["picture"].'" hidden>
   <input id="picture_name" name="picture_name" value="'.$_POST["picture"].'" hidden>
-  <input id="submit" name="submit" value="download" hidden type="submit" style="width:100px;height:30px;">
+  <input id="submit" name="submit" value="download" type="submit" style="width:100px;height:30px;">
   </form>';
   echo '
   </form>
